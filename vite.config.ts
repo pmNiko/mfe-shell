@@ -10,7 +10,7 @@ export default defineConfig({
       name: "Microfrontend-concept-shell",
       remotes: {
         mfConceptRemoteAppTest:
-          "http://staging.smandes.gov.ar/parcelTest/assets/remoteEntry.js",
+          "https://microfront-parcel-test.netlify.app/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
