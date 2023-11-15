@@ -29,7 +29,7 @@ function App() {
       <div
         style={{
           width: "90%",
-          minWidth: "320px",
+          minWidth: "350px",
           borderRadius: "5px",
           border: "1px solid rgba(0,0,0, 0.2)",
           boxShadow: "3px 6px 5px rgba(0,0,0, 0.3)",
