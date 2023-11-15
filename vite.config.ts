@@ -18,6 +18,14 @@ export default defineConfig({
     }),
   ],
 
+  preview: {
+    cors: false,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+    },
+  },
+
   build: {
     modulePreload: false,
     target: "esnext",
