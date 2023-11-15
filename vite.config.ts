@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import federation from "@originjs/vite-plugin-federation";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
   plugins: [
@@ -11,22 +10,31 @@ export default defineConfig({
       name: "Microfrontend-concept-shell",
       remotes: {
         mfConceptRemoteAppTest:
-          "https://microfront-parcel-test.netlify.app/assets/remoteEntry.js",
+          "http://staging.smandes.gov.ar/parcelTest/assets/remoteEntry.js",
+        // "https://microfront-parcel-test.netlify.app/assets/remoteEntry.js",
         // "http://localhost:5001/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
   ],
 
-  server: {
-    cors: {
-      origin: "*",
-      allowedHeaders: "Access-Control-Allow-Origin",
-    },
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-  },
+  // server: {
+  //   cors: {
+  //     origin: "*",
+  //     allowedHeaders: "Access-Control-Allow-Origin",
+  //   },
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //   },
+  // },
+
+  // preview: {
+  //   cors: false,
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //     "Access-Control-Allow-Headers": "*",
+  //   },
+  // },
 
   build: {
     modulePreload: false,
@@ -34,8 +42,4 @@ export default defineConfig({
     minify: false,
     cssCodeSplit: false,
   },
-  // build: {
-  //   minify: false,
-  //   target: ["chrome89", "edge89", "firefox89", "safari15"],
-  // },
 });
