@@ -19,14 +19,11 @@ export default defineConfig({
   ],
 
   server: {
-    // cors: { origin: "*" },
-    proxy: {
-      "/": {
-        target: "https://microfront-parcel-test.netlify.app",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\//, ""),
-      },
+    cors: { origin: "*" },
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
     },
   },
 
