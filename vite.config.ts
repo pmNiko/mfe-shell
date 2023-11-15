@@ -4,6 +4,7 @@ import federation from "@originjs/vite-plugin-federation";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "./",
   plugins: [
     react(),
     federation({
@@ -11,15 +12,20 @@ export default defineConfig({
       remotes: {
         mfConceptRemoteAppTest:
           "https://microfront-parcel-test.netlify.app/assets/remoteEntry.js",
+        // "http://localhost:5001/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
   ],
 
+  // build: {
+  //   modulePreload: false,
+  //   target: "esnext",
+  //   minify: false,
+  //   cssCodeSplit: false,
+  // },
   build: {
-    // modulePreload: false,
-    target: "esnext",
-    // minify: false,
-    // cssCodeSplit: false,
+    minify: false,
+    target: ["chrome89", "edge89", "firefox89", "safari15"],
   },
 });
