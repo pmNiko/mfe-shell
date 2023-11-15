@@ -18,6 +18,18 @@ export default defineConfig({
     }),
   ],
 
+  server: {
+    // cors: { origin: "*" },
+    proxy: {
+      "/": {
+        target: "https://microfront-parcel-test.netlify.app",
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\//, ""),
+      },
+    },
+  },
+
   // build: {
   //   modulePreload: false,
   //   target: "esnext",
