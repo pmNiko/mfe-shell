@@ -19,7 +19,7 @@ export default defineConfig({
   ],
 
   preview: {
-    cors: false,
+    cors: true,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "*",
