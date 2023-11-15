@@ -18,24 +18,6 @@ export default defineConfig({
     }),
   ],
 
-  // server: {
-  //   cors: {
-  //     origin: "*",
-  //     allowedHeaders: "Access-Control-Allow-Origin",
-  //   },
-  //   headers: {
-  //     "Access-Control-Allow-Origin": "*",
-  //   },
-  // },
-
-  // preview: {
-  //   cors: false,
-  //   headers: {
-  //     "Access-Control-Allow-Origin": "*",
-  //     "Access-Control-Allow-Headers": "*",
-  //   },
-  // },
-
   build: {
     modulePreload: false,
     target: "esnext",
