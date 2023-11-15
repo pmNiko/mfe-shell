@@ -19,22 +19,23 @@ export default defineConfig({
   ],
 
   server: {
-    cors: { origin: "*", allowedHeaders: ["Access-Control-Allow-Origin"] },
+    cors: {
+      origin: "*",
+      allowedHeaders: "Access-Control-Allow-Origin",
+    },
     headers: {
-      "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
     },
   },
 
-  // build: {
-  //   modulePreload: false,
-  //   target: "esnext",
-  //   minify: false,
-  //   cssCodeSplit: false,
-  // },
   build: {
+    modulePreload: false,
+    target: "esnext",
     minify: false,
-    target: ["chrome89", "edge89", "firefox89", "safari15"],
+    cssCodeSplit: false,
   },
+  // build: {
+  //   minify: false,
+  //   target: ["chrome89", "edge89", "firefox89", "safari15"],
+  // },
 });
