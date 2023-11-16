@@ -11,20 +11,13 @@ export default defineConfig({
       remotes: {
         mfConceptRemoteAppTest:
           // "http://staging.smandes.gov.ar/parcelTest/assets/remoteEntry.js",
-          "https://microfront-parcel-test.netlify.app/assets/remoteEntry.js",
+          "https://mf-parcel.onrender.com/assets/remoteEntry.js",
+        // "https://microfront-parcel-test.netlify.app/assets/remoteEntry.js",
         // "http://localhost:5001/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
   ],
-
-  preview: {
-    cors: true,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
-    },
-  },
 
   build: {
     modulePreload: false,
