@@ -31,6 +31,19 @@ export default defineConfig({
   ],
   // define: processEnvValues,
 
+  server: {
+    cors: {
+      origin: "*",
+      allowedHeaders: ["Access-Control-Allow-Origin"],
+      methods: ["GET", "Headers"],
+      exposedHeaders: ["Access-Control-Allow-Origin"],
+    },
+
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  },
+
   build: {
     modulePreload: false,
     target: "esnext",
