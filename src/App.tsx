@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from "react";
-import ParcelTest from "./parcels/ParcelTest";
+import Parcel from "./parcels/ParcelTest";
 
 function App() {
   useEffect(() => {
@@ -42,7 +42,7 @@ function App() {
         </p>
       </div>
       <Suspense fallback={<div>Cargando...</div>}>
-        <ParcelTest />
+        <Parcel />
       </Suspense>
     </>
   );

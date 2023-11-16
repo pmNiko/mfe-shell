@@ -1,3 +1,3 @@
 /// <reference types="vite/client" />
 
-declare module "mfConceptRemoteAppTest/ParcelTest";
+declare module "mf-parcel/ParcelTest";

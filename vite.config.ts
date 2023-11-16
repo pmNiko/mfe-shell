@@ -5,7 +5,16 @@ import federation from "@originjs/vite-plugin-federation";
 // export default defineConfig({
 
 export default defineConfig(({ mode }) => {
-  Object.assign(process.env, loadEnv(mode, process.cwd(), ""));
+  const env = loadEnv("mock", process.cwd(), "");
+  const processEnvValues = {
+    "process.env": Object.entries(env).reduce((prev, [key, val]) => {
+      // console.log(key, val);
+      return {
+        ...prev,
+        [key]: val,
+      };
+    }, {}),
+  };
 
   return {
     base: "./",
@@ -14,15 +23,12 @@ export default defineConfig(({ mode }) => {
       federation({
         name: "Microfrontend-concept-shell",
         remotes: {
-          mfConceptRemoteAppTest:
-            // "http://staging.smandes.gov.ar/parcelTest/assets/remoteEntry.js",
-            "http://localhost:5001/assets/parcel.js",
-          // "https://microfront-parcel-test.netlify.app/assets/remoteEntry.js",
-          // "http://localhost:5001/assets/remoteEntry.js",
+          "mf-parcel": `${env.VITE_PARCEL_URL}`,
         },
         shared: ["react", "react-dom"],
       }),
     ],
+    define: processEnvValues,
 
     build: {
       modulePreload: false,
