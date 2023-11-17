@@ -4,25 +4,23 @@ import Parcel from "./parcels/ParcelTest";
 function App() {
   const [data, setData] = useState({});
 
+  const handleEvent = (detail: any) => {
+    setData({ ...detail.detail });
+  };
+
   useEffect(() => {
-    const handleTestEvent = (detail: any) => {
-      setData({ ...detail.detail });
-    };
-    window.addEventListener("EVENT_TEST", handleTestEvent);
+    window.addEventListener("EVENT_TEST", handleEvent);
 
     return () => {
-      window.removeEventListener("EVENT_TEST", handleTestEvent);
+      window.removeEventListener("EVENT_TEST", handleEvent);
     };
   }, []);
 
   useEffect(() => {
-    const handleAddToCart = (detail: any) => {
-      setData({ ...detail.detail });
-    };
-    window.addEventListener("ADD_TO_CART_TEST", handleAddToCart);
+    window.addEventListener("ADD_TO_CART_TEST", handleEvent);
 
     return () => {
-      window.removeEventListener("ADD_TO_CART_TEST", handleAddToCart);
+      window.removeEventListener("ADD_TO_CART_TEST", handleEvent);
     };
   }, []);
 
