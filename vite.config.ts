@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "Microfrontend-concept-shell",
+      name: "mfe-shell",
       remotes: {
         "mfe-parcel": "http://localhost:5001/assets/parcel.js",
       },
