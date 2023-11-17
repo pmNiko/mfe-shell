@@ -1,7 +1,8 @@
 {
-  "name": "microfront-concept-shell",
-  "private": true,
-  "version": "0.0.0",
+  "homepage": "https://github.com/pmNiko/mfe-shell",
+  "name": "mfe-shell",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
