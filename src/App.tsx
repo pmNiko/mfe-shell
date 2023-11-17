@@ -1,10 +1,13 @@
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Parcel from "./parcels/ParcelTest";
 
 function App() {
+  const [data, setData] = useState({});
+
   useEffect(() => {
     const handleAddToCart = (detail: any) => {
       console.log(detail.detail);
+      // setData(detail.details);
     };
     window.addEventListener("ADD_TO_CART_TEST", handleAddToCart);
 
@@ -16,6 +19,7 @@ function App() {
   useEffect(() => {
     const handleTestEvent = (detail: any) => {
       console.log(detail.detail);
+      setData(detail.details);
     };
     window.addEventListener("EVENT_TEST", handleTestEvent);
 
@@ -23,6 +27,8 @@ function App() {
       window.removeEventListener("EVENT_TEST", handleTestEvent);
     };
   }, []);
+
+  console.log(data);
 
   return (
     <>
@@ -40,6 +46,10 @@ function App() {
         <p style={{ fontSize: "1em", fontWeight: "bold" }}>
           Primera inyección de un parcel
         </p>
+
+        {/* {Object.entries(data).length > 0 && ( */}
+        {/* <div>Datos recibidos: {JSON.stringify(data)}</div> */}
+        {/* )} */}
       </div>
       <Suspense fallback={<div>Cargando...</div>}>
         <Parcel />

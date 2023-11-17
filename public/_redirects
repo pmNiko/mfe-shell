@@ -1,3 +1,2 @@
-/api/_ https://apiservice.com/:splat 200
-/_ /index.html 200
-/\* /index.html 404
+/shell/_ https://microfront-shell.netlify.app/:splat 200!
+/parcel/_ https://microfront-parcel-test.netlify.app/assets/parcel.js/:splat 200!
