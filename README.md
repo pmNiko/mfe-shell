@@ -67,11 +67,11 @@
 <br/>
 
 <p align="center" style="color: blue; margin-top: 4rem" >
- Captura del evento de de producto
+ Petición de tareas
 </p>
 
 <p align="center" style="margin-top: 3rem">
-    <img alt="App" src="./images/event-product.png" width="600px"/>
+    <img alt="App" src="./images/tareas.png" width="600px"/>
 </p>
 
 ---

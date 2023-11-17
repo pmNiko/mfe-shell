@@ -17,10 +17,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("ADD_TO_CART_TEST", handleEvent);
+    window.addEventListener("EVENT_SEND_PRODUCT", handleEvent);
 
     return () => {
-      window.removeEventListener("ADD_TO_CART_TEST", handleEvent);
+      window.removeEventListener("EVENT_SEND_PRODUCT", handleEvent);
     };
   }, []);
 
@@ -30,7 +30,7 @@ function App() {
         style={{
           margin: "auto",
           minWidth: "350px",
-          maxWidth: "600px",
+          maxWidth: "750px",
           borderRadius: "5px",
           border: "1px solid rgba(0,0,0, 0.2)",
           boxShadow: "3px 6px 5px rgba(0,0,0, 0.3)",
