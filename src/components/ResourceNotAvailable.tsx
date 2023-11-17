@@ -9,7 +9,7 @@ const ResourceNotAvailable = () => {
         width: "12rem",
         margin: "auto",
         boxShadow: "2px 3px 4px 0px rgba(0,0,0,0.4)",
-        marginTop: "3rem",
+        marginTop: "10rem",
         marginBottom: "3rem",
         textAlign: "center",
       }}

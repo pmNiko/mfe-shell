@@ -5,26 +5,24 @@ function App() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    const handleAddToCart = (detail: any) => {
-      // console.log(detail.detail);
-      setData({ ...detail.detail });
-    };
-    window.addEventListener("ADD_TO_CART_TEST", handleAddToCart);
-
-    return () => {
-      window.removeEventListener("ADD_TO_CART_TEST", handleAddToCart);
-    };
-  }, []);
-
-  useEffect(() => {
     const handleTestEvent = (detail: any) => {
-      // console.log(detail.detail);
       setData({ ...detail.detail });
     };
     window.addEventListener("EVENT_TEST", handleTestEvent);
 
     return () => {
       window.removeEventListener("EVENT_TEST", handleTestEvent);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleAddToCart = (detail: any) => {
+      setData({ ...detail.detail });
+    };
+    window.addEventListener("ADD_TO_CART_TEST", handleAddToCart);
+
+    return () => {
+      window.removeEventListener("ADD_TO_CART_TEST", handleAddToCart);
     };
   }, []);
 

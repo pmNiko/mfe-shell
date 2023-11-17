@@ -43,6 +43,18 @@
 <br/>
 
 <p align="center" style="color: blue; margin-top: 4rem" >
+ Manejo del error de rendereo
+</p>
+
+<p align="center" style="margin-top: 3rem">
+    <img alt="App" src="./images/error-bundary.png" width="600px"/>
+</p>
+
+---
+
+<br/>
+
+<p align="center" style="color: blue; margin-top: 4rem" >
  Captura del evento de prueba
 </p>
 
