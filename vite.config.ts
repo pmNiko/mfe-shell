@@ -8,8 +8,7 @@ export default defineConfig({
     federation({
       name: "Microfrontend-concept-shell",
       remotes: {
-        "mf-parcel":
-          "https://microfront-parcel-test.netlify.app/assets/parcel.js",
+        "mfe-parcel": "http://localhost:5001/assets/parcel.js",
       },
       shared: ["react", "react-dom"],
     }),
