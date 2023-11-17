@@ -1,2 +1,2 @@
 /shell/_ https://microfront-shell.netlify.app/:splat 200!
-/parcel/_ https://microfront-parcel-test.netlify.app/assets/parcel.js/:splat 200!
+/parcel/_ https://microfront-parcel-test.netlify.app/assets/:splat 200!
