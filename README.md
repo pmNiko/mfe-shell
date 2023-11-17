@@ -1,27 +1,102 @@
-# React + TypeScript + Vite
+<h1 align="center" >
+    Micro Frontend - Implementación de concepto
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+    <img alt="Microfrontend" src="./images/mf.png" width="40%"/>
 
-Currently, two official plugins are available:
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<br/>
 
-## Expanding the ESLint configuration
+<p align="center">
+  <a href="https://github.com/pmNiko/mfe-shell/wiki">Lea más acerca de su implementación</a>
+</p>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<br/>
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+| Tecnología                       | Documentación                                                                  | Descripción                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| React                            | https://react.dev                                                              | Interfaces de usuario                                        |
+| Typescript                       | https://www.typescriptlang.org                                                 | Extiende JS - Tipado                                         |
+| react-error-boundary             | https://github.com/bvaughn/react-error-boundary                                | Manejos de errores del ciclo de vida de componentes de React |
+| Vite                             | https://vitejs.dev                                                             | Empaquetador de modulos                                      |
+| @originjs/vite-plugin-federation | https://github.com/originjs/vite-plugin-federation#externalstringpromisestring | Plugin de Vite                                               |
+| MUI Material UI                  | https://mui.com/                                                               | Biblioteca de Componentes                                    |
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+---
+
+<br/>
+
+<p align="center" style="color: blue; margin-top: 4rem" >
+ App Shell
+</p>
+
+<p align="center" style="margin-top: 3rem">
+    <img alt="App" src="./images/shell.png" width="600px"/>
+</p>
+
+---
+
+<br/>
+
+<p align="center" style="color: blue; margin-top: 4rem" >
+ Captura del evento de prueba
+</p>
+
+<p align="center" style="margin-top: 3rem">
+    <img alt="App" src="./images/event-test.png" width="600px"/>
+</p>
+
+---
+
+<br/>
+
+<p align="center" style="color: blue; margin-top: 4rem" >
+ Captura del evento de de producto
+</p>
+
+<p align="center" style="margin-top: 3rem">
+    <img alt="App" src="./images/event-product.png" width="600px"/>
+</p>
+
+---
+
+<div align="center" style=" margin-top: 4rem; padding: 2rem; boxShadow: 2px 3px 4px 0px rgba(0,0,0,0.4)" width="50%" >
+    <p style="color: blue; textAlign: justify">
+        ¿Como funciona?
+    </p>
+    <p>
+        El App Shell maneja la estructura general del proyecto web, digase el layout, nav, header, footer, menu.
+        <br/> Con esta estrategia se lograria consumir componentes que tengan una sola responsabilidad, siendo capaces de acoplar 
+            su lógica al proyecto general de manera simple. 
+        <br/> De esta manera podriamos sumar funcionalidades al proyecto como si de un conjunto se tratara.
+        <br/> Es importante comprender que al igual que multiples estrategias tiene sus pro y contras.
+    </p>
+
+</div>
+
+- [wiki deploy](https://github.com/pmNiko/mfe-parcel/wiki/4%E2%80%90Deploy)
+
+<br/>
+
+---
+
+<div align="center" style=" margin-top: 4rem; padding: 2rem; boxShadow: 2px 3px 4px 0px rgba(0,0,0,0.4)" width="50%" >
+    <p style="color: blue; textAlign: justify">
+        Aplicación Contenedora
+    </p>
+    <p>
+        App Shell será aquella aplicación que consuma estos parcel o componentes para renderearlos en su layout bajo demanda.
+        En este readme solo se hará referencia al repositorio del mismo para que pueda descargar y verificar su estructura.
+    </p>
+
+</div>
+
+- [App Shell](https://github.com/pmNiko/mfe-shell)
+
+<br/>
+
+---
