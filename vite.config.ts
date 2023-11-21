@@ -1,24 +1,29 @@
+import { defineConfig, loadEnv } from "vite";
 import federation from "@originjs/vite-plugin-federation";
 import react from "@vitejs/plugin-react-swc";
-import { defineConfig } from "vite";
 
-export default defineConfig({
-  plugins: [
-    react(),
-    federation({
-      name: "mfe-shell",
-      remotes: {
-        "mfe-parcel": "http://localhost:5001/assets/parcel.js",
-      },
-      shared: ["react", "react-dom"],
-    }),
-  ],
+export default defineConfig(({ mode }) => {
+  Object.assign(process.env, loadEnv(mode, process.cwd(), ""));
 
-  build: {
-    modulePreload: false,
-    target: "esnext",
-    minify: false,
-    cssCodeSplit: false,
-  },
-  base: "/",
+  return {
+    plugins: [
+      react(),
+      federation({
+        name: "mfe-shell",
+        filename: "mfe-shell-entry.js",
+        shared: ["react", "react-dom"],
+        remotes: {
+          "mfe-parcel": process.env.VITE_PARCEL_URL,
+        },
+      }),
+    ],
+    build: {
+      modulePreload: false,
+      target: "esnext",
+      minify: false,
+      cssCodeSplit: false,
+    },
+
+    base: "/mfe-shell/",
+  };
 });

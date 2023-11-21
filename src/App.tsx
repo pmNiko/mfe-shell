@@ -24,13 +24,15 @@ function App() {
     };
   }, []);
 
+  // Acceso a las variables en vite
+  // console.log(import.meta.env);
+
   return (
     <>
       <div
         style={{
           margin: "auto",
           minWidth: "350px",
-          maxWidth: "750px",
           borderRadius: "5px",
           border: "1px solid rgba(0,0,0, 0.2)",
           boxShadow: "3px 6px 5px rgba(0,0,0, 0.3)",
