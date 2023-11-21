@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   // Acceso a las variables en vite
-  // console.log(import.meta.env);
+  console.log(import.meta.env.VITE_EXAMPLE_URL);
 
   return (
     <>
