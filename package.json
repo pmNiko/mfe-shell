@@ -13,10 +13,14 @@
     "deploy": "yarn build && yarn preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.18",
     "@originjs/vite-plugin-federation": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-error-boundary": "^4.0.4"
+    "react-error-boundary": "^4.0.4",
+    "react-router-dom": "^6.4.5"
   },
   "devDependencies": {
     "@types/node": "^20.9.3",
