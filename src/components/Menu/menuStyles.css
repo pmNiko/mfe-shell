@@ -1,0 +1,11 @@
+.custom-nav-link {
+  color: black;
+}
+
+.custom-nav-link.active {
+  color: rgb(44, 163, 242);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

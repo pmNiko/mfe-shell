@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import {
   Box,
   Button,
@@ -10,11 +12,12 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
-import { ItemListMenu } from "./ItemListMenu";
+import { ItemsMenuProps } from "../../interfaces/ItemsMenu";
 import { ExternalItemListMenu } from "./ExternalItemListMenu";
+import { ItemListMenu } from "./ItemListMenu";
 
 export const Menu = () => {
+  const items = useLoaderData() as ItemsMenuProps[];
   const [isOpen, setIsOpen] = useState(false);
   const [isAllExpanded, setIsAllExpanded] = useState(false);
 
@@ -75,7 +78,7 @@ export const Menu = () => {
 
           <Divider sx={{ my: 1, mx: 2 }} />
 
-          <ItemListMenu />
+          <ItemListMenu items={items} />
 
           <Divider sx={{ mt: 2.5, mx: 2 }} />
           <Box textAlign="center" mt={1}>
@@ -84,7 +87,7 @@ export const Menu = () => {
             </Typography>
           </Box>
 
-          <ExternalItemListMenu />
+          <ExternalItemListMenu items={items} />
         </List>
       </Drawer>
     </menu>

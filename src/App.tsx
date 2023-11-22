@@ -1,7 +1,7 @@
-import { PublicLayout } from "./layout";
+import Router from "./router";
 
 function App() {
-  return <PublicLayout />;
+  return <Router />;
 }
 
 export default App;

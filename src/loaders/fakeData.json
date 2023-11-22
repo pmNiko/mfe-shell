@@ -1,0 +1,169 @@
+[
+  {
+    "id": 0,
+    "position": 0,
+    "title": "JSON Placeholder API",
+    "route": "/jsonplaceholder",
+    "enabled": true,
+    "protected": false,
+    "internal": true,
+    "expanded": true,
+    "children": [
+      {
+        "id": 0,
+        "position": 0,
+        "title": "Posts",
+        "route": "/posts",
+        "enabled": true,
+        "protected": false,
+        "internal": true,
+        "description": "Posts de prueba para la prueba de concepto.",
+        "iconname": "post_add"
+      },
+      {
+        "id": 1,
+        "position": 1,
+        "title": "Comentarios",
+        "route": "/comments",
+        "enabled": true,
+        "protected": false,
+        "internal": true,
+        "description": "Comentarios de prueba para la prueba de concepto.",
+        "iconname": "comment"
+      },
+      {
+        "id": 2,
+        "position": 2,
+        "title": "Tareas",
+        "route": "/todos",
+        "enabled": true,
+        "protected": false,
+        "internal": true,
+        "description": "Tareas de prueba para la prueba de concepto.",
+        "iconname": "list_alt"
+      },
+      {
+        "id": 3,
+        "position": 3,
+        "title": "Usuarios",
+        "route": "/users",
+        "enabled": true,
+        "protected": false,
+        "internal": true,
+        "description": "Usuarios de prueba para la prueba de concepto.",
+        "iconname": "group"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "position": 1,
+    "title": "Rick and Morty API",
+    "route": "/rickandmorty",
+    "enabled": true,
+    "protected": false,
+    "internal": true,
+    "expanded": true,
+    "children": [
+      {
+        "id": 0,
+        "position": 0,
+        "title": "Personajes",
+        "route": "/characters",
+        "enabled": true,
+        "protected": false,
+        "internal": true,
+        "description": "Personajes de prueba para la prueba de concepto.",
+        "iconname": "person"
+      },
+      {
+        "id": 1,
+        "position": 1,
+        "title": "Ubicaciones",
+        "route": "/locations",
+        "enabled": true,
+        "protected": false,
+        "internal": true,
+        "description": "Ubicaciones de prueba para la prueba de concepto.",
+        "iconname": "location_on"
+      },
+      {
+        "id": 2,
+        "position": 2,
+        "title": "Episodios",
+        "route": "/episodes",
+        "enabled": true,
+        "protected": false,
+        "internal": true,
+        "description": "Episodios de prueba para la prueba de concepto.",
+        "iconname": "next_week"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "position": 2,
+    "title": "Parcel de prueba",
+    "route": "/parcel",
+    "enabled": true,
+    "protected": false,
+    "internal": true,
+    "description": "Parcel de prueba para la prueba de concept0.",
+    "iconname": "labs"
+  },
+  {
+    "id": 3,
+    "position": 3,
+    "title": "Acerca de nosotros",
+    "route": "/about",
+    "enabled": true,
+    "protected": false,
+    "internal": true,
+    "description": "Acerca de nosotros, página de concepto.",
+    "iconname": "handshake"
+  },
+  {
+    "id": 4,
+    "position": 4,
+    "title": "Modulo bloquedao",
+    "route": "/unavailable",
+    "enabled": false,
+    "protected": false,
+    "internal": true,
+    "description": "Este módulo se encuntra inhabilitado.",
+    "iconname": "block"
+  },
+  {
+    "id": 5,
+    "position": 5,
+    "title": "Modulo Protegido",
+    "route": "/protectedmodule",
+    "enabled": true,
+    "protected": true,
+    "internal": true,
+    "description": "Este módulo se encuntra protegido.",
+    "iconname": "passkey"
+  },
+  {
+    "id": 6,
+    "position": 6,
+    "title": "Navegador oogle",
+    "route": "https://www.google.com",
+    "enabled": false,
+    "protected": false,
+    "internal": false,
+    "description": "Yendo al navegador de Google.",
+    "iconname": "travel_explore"
+  },
+  {
+    "id": 7,
+    "position": 7,
+    "title": "NASA",
+    "route": "https://www.nasa.gov/",
+    "enabled": false,
+    "protected": false,
+    "internal": false,
+    "description": "Página oficial de la NASA.",
+    "iconname": "filter_drama"
+  }
+]
