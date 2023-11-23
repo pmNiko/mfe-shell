@@ -6,6 +6,7 @@ import { errorLoader, loaderItemsMenu } from "../loaders";
 import { HomePage } from "../pages";
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
+const ParcelTest = lazy(() => import("../pages/ParcelTest"));
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,14 @@ export const router = createBrowserRouter([
             index: true,
             loader: loaderItemsMenu,
             element: <HomePage />,
+          },
+          {
+            path: "parcel",
+            element: (
+              <Suspense fallback={<CircularProgress />}>
+                <ParcelTest />
+              </Suspense>
+            ),
           },
           {
             path: "error-page",
