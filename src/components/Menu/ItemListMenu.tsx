@@ -44,6 +44,13 @@ export const ItemListMenu = ({ items, updatedExpadedSections }: Props) => {
           )}
         </div>
       ))}
+      <SimpleItem
+        title="Pagina de error"
+        disabled={false}
+        isProtected={false}
+        iconname={"error"}
+        route="/error-page"
+      />
     </>
   );
 };
@@ -75,7 +82,7 @@ const ItemWithChildren = ({
         {expandSection ? <Icon>expand_less</Icon> : <Icon>expand_more</Icon>}
       </ListItemButton>
       <Collapse in={expandSection} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding sx={{ pl: 3, mt: -1 }}>
+        <List component="div" disablePadding sx={{ pl: 4, mt: -1 }}>
           {item.children!.map((child, i) => (
             <SimpleItem
               key={child.id + i}

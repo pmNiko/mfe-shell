@@ -1,6 +1,6 @@
 import data from "./fakeData.json";
 
-export const loaderItemListMenu = async () => {
+export const loaderItemsMenu = async () => {
   return await new Promise((resolve, __) => {
     setTimeout(() => {
       resolve({
