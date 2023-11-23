@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import {
   Box,
@@ -12,14 +12,58 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { ItemsMenuProps } from "../../interfaces/ItemsMenu";
+import { ItemsMenuProps, LoaderData } from "../../interfaces/ItemsMenu";
 import { ExternalItemListMenu } from "./ExternalItemListMenu";
 import { ItemListMenu } from "./ItemListMenu";
 
 export const Menu = () => {
-  const items = useLoaderData() as ItemsMenuProps[];
+  const { internals, externals } = useLoaderData() as LoaderData;
+  const [internalItems, setInternalIems] = useState<ItemsMenuProps[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isAllExpanded, setIsAllExpanded] = useState(false);
+
+  const toggleExpandAllSections = () => {
+    setInternalIems([
+      ...internalItems.map((item) => {
+        if (!!item.children) {
+          return {
+            ...item,
+            isExpanded: !isAllExpanded,
+          };
+        }
+
+        return item;
+      }),
+    ]);
+  };
+
+  const updatedExpadedSections = (id: number) => {
+    setInternalIems([
+      ...internalItems.map((section) => {
+        if (section.id === id) {
+          section.isExpanded = !section.isExpanded;
+        }
+        return section;
+      }),
+    ]);
+  };
+
+  useEffect(() => {
+    setInternalIems(internals);
+    setIsAllExpanded(
+      internals
+        .filter((item) => !!item.children)
+        .every((item) => item.isExpanded)
+    );
+  }, []);
+
+  useEffect(() => {
+    setIsAllExpanded(
+      internalItems
+        .filter((item) => !!item.children)
+        .every((item) => item.isExpanded)
+    );
+  }, [internalItems]);
 
   return (
     <menu>
@@ -61,8 +105,8 @@ export const Menu = () => {
             </ListItemButton>
 
             <Box
-              sx={{ cursor: "pointer", maxWidth: 10, pr: 7 }}
-              onClick={() => setIsAllExpanded(!isAllExpanded)}
+              sx={{ cursor: "pointer", maxWidth: 10, pr: 6 }}
+              onClick={toggleExpandAllSections}
             >
               {isAllExpanded ? (
                 <Button sx={{ pr: 5, pt: 2 }} color="inherit">
@@ -78,7 +122,10 @@ export const Menu = () => {
 
           <Divider sx={{ my: 1, mx: 2 }} />
 
-          <ItemListMenu items={items} />
+          <ItemListMenu
+            items={internalItems}
+            updatedExpadedSections={updatedExpadedSections}
+          />
 
           <Divider sx={{ mt: 2.5, mx: 2 }} />
           <Box textAlign="center" mt={1}>
@@ -87,7 +134,7 @@ export const Menu = () => {
             </Typography>
           </Box>
 
-          <ExternalItemListMenu items={items} />
+          <ExternalItemListMenu items={externals} />
         </List>
       </Drawer>
     </menu>

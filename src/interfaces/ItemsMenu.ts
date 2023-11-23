@@ -3,11 +3,16 @@ export interface ItemsMenuProps {
   position: number;
   title: string;
   route: string;
-  enabled: boolean;
-  protected: boolean;
+  isEnabled: boolean;
+  isProtected: boolean;
   internal: boolean;
   children?: ItemsMenuProps[];
-  expanded?: boolean;
+  isExpanded?: boolean;
   iconname?: string;
   description?: string;
+}
+
+export interface LoaderData {
+  internals: ItemsMenuProps[];
+  externals: ItemsMenuProps[];
 }

@@ -1,4 +1,8 @@
 .custom-nav-link {
+  text-decoration: none;
+}
+
+.custom-nav-link {
   color: black;
 }
 
