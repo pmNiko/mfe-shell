@@ -65,9 +65,11 @@ export default () => {
             </div>
           )}
         </Box>
-        <Box textAlign="center">
+        <Box textAlign="center" my={2}>
           {Object.entries(data).length > 0 && (
-            <Button onClick={() => setData([])}>Limpiar datos</Button>
+            <Button color="secondary" onClick={() => setData([])}>
+              Limpiar datos
+            </Button>
           )}
         </Box>
       </CardContainer>
