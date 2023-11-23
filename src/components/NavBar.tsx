@@ -2,6 +2,7 @@ import { Box, Button, Icon } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { NavLink } from "react-router-dom";
 
 export const NavBar = ({ children }: { children?: JSX.Element }) => {
   return (
@@ -10,9 +11,11 @@ export const NavBar = ({ children }: { children?: JSX.Element }) => {
         <Toolbar>
           <menu>{children}</menu>
 
-          <Button sx={{ ml: -1, color: "white" }}>
-            <Icon>home</Icon>
-          </Button>
+          <NavLink to={"/"}>
+            <Button sx={{ ml: -1, color: "white" }}>
+              <Icon>home</Icon>
+            </Button>
+          </NavLink>
 
           <Typography
             variant="h6"

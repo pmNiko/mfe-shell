@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  padding: 1.5em;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  gap: 1.5em;
+
+  grid-auto-flow: row;
+  align-content: center;
+  text-align: center;
+}
