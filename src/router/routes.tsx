@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { createBrowserRouter } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 import { PublicLayout, SupportLayout } from "../layout";
 import { errorLoader, loaderItemsMenu } from "../loaders";
 import { HomePage } from "../pages";
-import { CircularProgress } from "@mui/material";
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 
