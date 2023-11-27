@@ -76,7 +76,7 @@ export const CardContainer = ({
             {showImage && (
               <Box textAlign="center" mt={6}>
                 <img
-                  src="mantenimiento.gif"
+                  src="/mantenimiento.gif"
                   style={{ opacity: "0.5", height: "10em" }}
                 />
               </Box>

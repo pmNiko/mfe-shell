@@ -16,31 +16,30 @@ export const router = createBrowserRouter([
     errorElement: <SupportLayout />,
     children: [
       {
-        errorElement: <SupportLayout />,
-        children: [
-          {
-            index: true,
-            loader: loaderItemsMenu,
-            element: <HomePage />,
-          },
-          {
-            path: "parcel",
-            element: (
-              <Suspense fallback={<CircularProgress />}>
-                <ParcelTest />
-              </Suspense>
-            ),
-          },
-          {
-            path: "error-page",
-            loader: errorLoader,
-            element: (
-              <Suspense fallback={<CircularProgress />}>
-                <ErrorPage />
-              </Suspense>
-            ),
-          },
-        ],
+        index: true,
+        loader: loaderItemsMenu,
+        element: <HomePage />,
+      },
+      {
+        path: "parcel",
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <ParcelTest />
+          </Suspense>
+        ),
+      },
+      {
+        path: "jsonplaceholder/",
+        children: [],
+      },
+      {
+        path: "error-page",
+        loader: errorLoader,
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <ErrorPage />
+          </Suspense>
+        ),
       },
     ],
   },

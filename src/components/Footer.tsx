@@ -7,12 +7,13 @@ export const Footer: FC = (): ReactElement => {
       sx={{
         background: "black",
         width: "100%",
-        minHeight: "100px",
+        minHeight: "150px",
       }}
     >
       <Container maxWidth="lg">
         <Grid container direction="column" alignItems="center">
           <Box
+            mt={2}
             p={2}
             pt={4}
             sx={{

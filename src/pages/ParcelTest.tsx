@@ -30,7 +30,7 @@ export default () => {
   // console.log(import.meta.env.VITE_EXAMPLE_URL);
 
   return (
-    <Box mt={-2} mb={2}>
+    <Box mt={-2}>
       <Parcel />
       <CardContainer minHeight="10vh" mt={-13} md={8}>
         <Box mt={2} mb={2} textAlign="center">

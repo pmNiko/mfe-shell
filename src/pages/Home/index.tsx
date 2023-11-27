@@ -50,7 +50,7 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <CardContainer xs={11} sm={8} md={7} lg={5} minHeight="65vh" mb={15}>
+    <CardContainer xs={11} sm={8} md={7} lg={5} minHeight="70vh">
       <div className="container">
         {items.map((item) => (
           <ItemCard
@@ -114,7 +114,7 @@ const ItemCard = ({
       onClick={click}
       hidden={isProtected}
     >
-      <Box py={2} px={1}>
+      <Box py={3} px={1}>
         <Icon>{iconname}</Icon>
 
         <Typography fontWeight="bold" variant="subtitle1">
