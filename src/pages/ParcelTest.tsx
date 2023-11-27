@@ -1,7 +1,7 @@
-import { Suspense, useEffect, useState } from "react";
-import Parcel from "../parcels/ParcelTest";
+import { Box, Button, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { CardContainer } from "../components";
-import { Box, Button, Grid } from "@mui/material";
+import Parcel from "../parcels/ParcelTest";
 
 export default () => {
   const [data, setData] = useState({});
@@ -32,42 +32,34 @@ export default () => {
   return (
     <Box mt={-2} mb={2}>
       <Parcel />
-      <CardContainer
-        title="Datos recibidos desde el parcel"
-        minHeight="10vh"
-        mt={-13}
-      >
+      <CardContainer minHeight="10vh" mt={-13} md={8}>
+        <Box mt={2} mb={2} textAlign="center">
+          <Typography fontWeight="italic" variant="subtitle1">
+            Datos emitidos desde el parcel
+          </Typography>
+        </Box>
         <Box>
           {Object.entries(data).length > 0 && (
-            <div style={{ marginTop: "2em" }}>
-              <div
-                style={{
-                  minWidth: "250px",
-                  textAlign: "start",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: "-1.5em",
-                }}
-              >
-                <ul>
-                  <p style={{ marginLeft: "-1em" }}>
-                    Datos recibidos desde el parcel
-                  </p>
+            <Box mx={4}>
+              {Object.entries(data).map((ele, i) => (
+                <Box key={ele[0] + i} display="flex" gap={2}>
+                  <Typography
+                    minWidth={85}
+                    variant="subtitle2"
+                    textTransform="capitalize"
+                  >
+                    - {ele[0]}:
+                  </Typography>
 
-                  {Object.entries(data).map((ele) => (
-                    <li key={ele[0]}>
-                      {ele[0]}: {`${ele[1]}`}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                  <Typography variant="subtitle2">{`${ele[1]}`}</Typography>
+                </Box>
+              ))}
+            </Box>
           )}
         </Box>
         <Box textAlign="center" my={2}>
           {Object.entries(data).length > 0 && (
-            <Button color="secondary" onClick={() => setData([])}>
+            <Button color="secondary" onClick={() => setData({})}>
               Limpiar datos
             </Button>
           )}

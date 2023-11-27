@@ -1,38 +1,33 @@
+import { NavLink } from "react-router-dom";
+import { Box, Button, Divider } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import { CardContainer } from ".";
+
 const ResourceNotAvailable = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        height: "12rem",
-        width: "12rem",
-        margin: "auto",
-        boxShadow: "2px 3px 4px 0px rgba(0,0,0,0.4)",
-        marginTop: "10rem",
-        marginBottom: "3rem",
-        textAlign: "center",
-      }}
+    <CardContainer
+      minHeight=""
+      height="65vh"
+      showImage
+      title="El recurso se encuentra en manatenimiento"
     >
-      <p style={{ fontWeight: "bold" }}>Módulo en mantenimiento</p>
-      <img src="/mantenimiento.gif" alt="" />
+      <Box mx={6}>
+        <Typography mx={2} mb={1} fontWeight="bold" variant="subtitle2">
+          Por favor intente nuevamente más tarde o comuniquese con el soporte.
+        </Typography>
+        <Divider />
+      </Box>
 
-      <button
-        style={{
-          borderRadius: "0px 0px 5px 5px",
-          border: "1px solid rgba(0,0,0,0.2)",
-          background: "#2ea3f2",
-          color: "white",
-          boxShadow: "5px 3px 7px rgba(0,0,0,0.2)",
-          fontSize: "0.85em",
-          fontWeight: "bold",
-          padding: "3px",
-        }}
-        onClick={() => window.location.reload()}
-      >
-        Recargar
-      </button>
-    </div>
+      <Box mt={4} mb={2} mx={2} display="flex" justifyContent="space-evenly">
+        <Button color="secondary" onClick={() => window.location.reload()}>
+          Recargar
+        </Button>
+
+        <NavLink to="/">
+          <Button>Ir al inicio</Button>
+        </NavLink>
+      </Box>
+    </CardContainer>
   );
 };
 
