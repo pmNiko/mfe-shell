@@ -1,4 +1,5 @@
 import { Box, Grid, GridSize, Typography } from "@mui/material";
+import imageLogo from "/mantenimiento.gif";
 
 interface Props {
   xs?: GridSize;
@@ -76,7 +77,7 @@ export const CardContainer = ({
             {showImage && (
               <Box textAlign="center" mt={6}>
                 <img
-                  src="/mantenimiento.gif"
+                  src={imageLogo}
                   style={{ opacity: "0.5", height: "10em" }}
                 />
               </Box>
