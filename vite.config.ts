@@ -24,6 +24,6 @@ export default defineConfig(({ mode }) => {
       cssCodeSplit: false,
     },
 
-    base: "./",
+    base: "/mfe-shell/",
   };
 });

@@ -1,6 +1,6 @@
+import { NavLink } from "react-router-dom";
 import { Box, Button, Divider } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { NavLink } from "react-router-dom";
 import { CardContainer } from ".";
 
 const ResourceNotAvailable = () => {
@@ -20,10 +20,7 @@ const ResourceNotAvailable = () => {
       </Box>
 
       <Box mt={4} mb={2} mx={2} display="flex" justifyContent="space-evenly">
-        <Button
-          color="secondary"
-          onClick={() => (window.location.href = window.location.href)}
-        >
+        <Button color="secondary" onClick={() => window.location.reload()}>
           Recargar
         </Button>
 
