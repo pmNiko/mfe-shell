@@ -125,6 +125,6 @@ export const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/mfe-shell",
+    basename: "/mfe-shell/",
   }
 );

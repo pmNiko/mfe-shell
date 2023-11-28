@@ -58,7 +58,7 @@
   {
     "id": 1,
     "position": 1,
-    "title": "Rick and Morty API",
+    "title": "Rick & Morty API",
     "route": "/rickandmorty",
     "isEnabled": true,
     "isProtected": false,
