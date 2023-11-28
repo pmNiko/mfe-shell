@@ -1,4 +1,4 @@
-export interface LocationResponseTs {
+export interface LocationResponse {
   info: Info;
   results: Result[];
 }

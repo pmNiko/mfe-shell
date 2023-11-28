@@ -14,7 +14,7 @@
         "position": 0,
         "title": "Posts",
         "route": "/posts",
-        "isEnabled": false,
+        "isEnabled": true,
         "isProtected": false,
         "internal": true,
         "description": "Posts de prueba para la prueba de concepto.",

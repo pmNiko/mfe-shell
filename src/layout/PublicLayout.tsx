@@ -10,7 +10,7 @@ export const PublicLayout = () => {
         </NavBar>
       </header>
 
-      <main style={{ minHeight: "80vh", marginTop: "1em" }}>
+      <main style={{ minHeight: "75vh" }}>
         <Outlet />
       </main>
 

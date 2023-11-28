@@ -1,4 +1,4 @@
-export interface EpisodeResponseTs {
+export interface EpisodeResponse {
   info: Info;
   results: Result[];
 }

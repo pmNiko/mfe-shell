@@ -4,11 +4,13 @@ import { LoadingPage } from "../components";
 import { PublicLayout, SupportLayout } from "../layout";
 import { errorLoader, loaderItemsMenu } from "../loaders";
 import { HomePage } from "../pages";
+import { useGetPosts, useGetComments } from "../api/JsonPlacecholder";
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 const ParcelTest = lazy(() => import("../pages/ParcelTest"));
 
 const Posts = lazy(() => import("../pages/JSONPLACEHOLDER/Posts"));
+const Post = lazy(() => import("../pages/JSONPLACEHOLDER/Post"));
 const Comments = lazy(() => import("../pages/JSONPLACEHOLDER/Comments"));
 const Todos = lazy(() => import("../pages/JSONPLACEHOLDER/Todos"));
 const Users = lazy(() => import("../pages/JSONPLACEHOLDER/Users"));
@@ -51,6 +53,7 @@ export const router = createBrowserRouter(
           children: [
             {
               path: "posts",
+              loader: () => useGetPosts(),
               element: (
                 <LoadingPage>
                   <Posts />
@@ -58,7 +61,16 @@ export const router = createBrowserRouter(
               ),
             },
             {
+              path: "post/:postID/:userID",
+              element: (
+                <LoadingPage>
+                  <Post />
+                </LoadingPage>
+              ),
+            },
+            {
               path: "comments",
+              loader: () => useGetComments,
               element: (
                 <LoadingPage>
                   <Comments />

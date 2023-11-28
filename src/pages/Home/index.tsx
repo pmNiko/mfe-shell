@@ -50,7 +50,7 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <CardContainer xs={11} sm={8} md={7} lg={5} minHeight="70vh">
+    <CardContainer sm={10} md={8} lg={5} minHeight="70vh">
       <div className="container">
         {items.map((item) => (
           <ItemCard
