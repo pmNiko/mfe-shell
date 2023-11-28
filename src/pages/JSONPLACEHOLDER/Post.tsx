@@ -11,16 +11,11 @@ import { useGetPostByID, useGetUserByID } from "../../api/JsonPlacecholder";
 import { CardContainer } from "../../components";
 import { useGetApi } from "../../hooks";
 import { Paths } from "../../router/routes";
-import { UserResponse } from "../../interfaces/JsonPlaceholderApi/Users";
-import { PostResponse } from "../../interfaces/JsonPlaceholderApi/Posts";
 
 export default () => {
   const { postID, userID } = useParams();
-  const postData = useGetApi(() => useGetPostByID(postID!));
-  const userData = useGetApi(() => useGetUserByID(userID!));
-
-  const user = userData.data as UserResponse;
-  const post = postData.data as PostResponse;
+  const postData = useGetApi(() => useGetPostByID(postID!), {});
+  const userData = useGetApi(() => useGetUserByID(userID!), {});
 
   return (
     <CardContainer
@@ -51,7 +46,7 @@ export default () => {
                 color="text.secondary"
                 gutterBottom
               >
-                {user.id} {user.name}
+                {userData.data.id} {userData.data.name}
               </Typography>
 
               <Typography
@@ -60,16 +55,18 @@ export default () => {
                 overflow="hidden"
                 variant="subtitle1"
               >
-                {user.username}
+                {userData.data.username}
               </Typography>
-              <Typography variant="subtitle2">{user.email}</Typography>
-              <Typography variant="subtitle2">{user.phone}</Typography>
-              <Typography variant="subtitle2">{user.website}</Typography>
+              <Typography variant="subtitle2">{userData.data.email}</Typography>
+              <Typography variant="subtitle2">{userData.data.phone}</Typography>
+              <Typography variant="subtitle2">
+                {userData.data.website}
+              </Typography>
 
               <Typography mt={5} variant="h6">
-                {post.title}
+                {postData.data.title}
               </Typography>
-              <Typography variant="body2">{post.body}</Typography>
+              <Typography variant="body2">{postData.data.body}</Typography>
             </CardContent>
           </Card>
         )}
