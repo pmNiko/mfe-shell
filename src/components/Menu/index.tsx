@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, NavLink } from "react-router-dom";
 import {
   Box,
   Button,
@@ -15,6 +15,8 @@ import {
 import { ItemsMenuProps, LoaderData } from "../../interfaces/ItemsMenu";
 import { ExternalItemListMenu } from "./ExternalItemListMenu";
 import { ItemListMenu } from "./ItemListMenu";
+import { Paths } from "../../router/routes";
+import "./menuStyles.css";
 
 export const Menu = () => {
   const { internals, externals } = useLoaderData() as LoaderData;
@@ -96,29 +98,24 @@ export const Menu = () => {
           component="nav"
           aria-labelledby="nested-list-subheader"
         >
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-            <ListItemButton key="home" style={{ marginLeft: 5, minWidth: 210 }}>
-              <ListItemIcon>
+          <ListItemButton onClick={toggleExpandAllSections}>
+            <NavLink
+              className="custom-nav-link"
+              style={{ display: "flex" }}
+              to={Paths.INDEX}
+            >
+              <ListItemIcon sx={{ pt: 0.9, pl: 1 }}>
                 <Icon>home</Icon>
               </ListItemIcon>
-              <ListItemText primary="Inicio" sx={{ pt: 0.5 }} />
-            </ListItemButton>
+              <ListItemText primary="Inicio" sx={{ pt: 0.5, mr: 18.5 }} />
+            </NavLink>
 
-            <Box
-              sx={{ cursor: "pointer", maxWidth: 10, pr: 6 }}
-              onClick={toggleExpandAllSections}
-            >
-              {isAllExpanded ? (
-                <Button sx={{ pr: 5, pt: 2 }} color="inherit">
-                  <Icon>expand_less</Icon>
-                </Button>
-              ) : (
-                <Button sx={{ pr: 5, pt: 2 }} color="inherit">
-                  <Icon>expand_more</Icon>
-                </Button>
-              )}
-            </Box>
-          </Box>
+            {isAllExpanded ? (
+              <Icon>expand_less</Icon>
+            ) : (
+              <Icon>expand_more</Icon>
+            )}
+          </ListItemButton>
 
           <Divider sx={{ my: 1, mx: 2 }} />
 
