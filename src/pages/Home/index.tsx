@@ -1,9 +1,9 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { Box, Card, Icon, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { LoaderData } from "../../interfaces/ItemsMenu";
 import { CardContainer } from "../../components";
 import "./home.css";
+import { LoaderDataMenu } from "../../interfaces/LoaderDataMenu";
 
 interface InternalItemCardProps {
   iconname: string;
@@ -16,7 +16,7 @@ interface InternalItemCardProps {
 
 export const HomePage = () => {
   const navigate = useNavigate();
-  const { internals, externals } = useLoaderData() as LoaderData;
+  const { internals, externals } = useLoaderData() as LoaderDataMenu;
   const [items, setItems] = useState<InternalItemCardProps[]>([]);
 
   useEffect(() => {

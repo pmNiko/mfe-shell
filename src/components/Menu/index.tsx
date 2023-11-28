@@ -12,14 +12,15 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { ItemsMenuProps, LoaderData } from "../../interfaces/ItemsMenu";
 import { ExternalItemListMenu } from "./ExternalItemListMenu";
 import { ItemListMenu } from "./ItemListMenu";
 import { Paths } from "../../router/routes";
 import "./menuStyles.css";
+import { LoaderDataMenu } from "../../interfaces/LoaderDataMenu";
+import { ItemsMenuProps } from "./interfaces";
 
 export const Menu = () => {
-  const { internals, externals } = useLoaderData() as LoaderData;
+  const { internals, externals } = useLoaderData() as LoaderDataMenu;
   const [internalItems, setInternalIems] = useState<ItemsMenuProps[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isAllExpanded, setIsAllExpanded] = useState(false);

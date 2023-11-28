@@ -11,8 +11,3 @@ export interface ItemsMenuProps {
   iconname?: string;
   description?: string;
 }
-
-export interface LoaderData {
-  internals: ItemsMenuProps[];
-  externals: ItemsMenuProps[];
-}

@@ -4,7 +4,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { ItemsMenuProps } from "../../interfaces/ItemsMenu";
+import { ItemsMenuProps } from "./interfaces";
 
 export const ExternalItemListMenu = ({
   items,

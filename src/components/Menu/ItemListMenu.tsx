@@ -9,8 +9,8 @@ import {
   ListItemText,
 } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import { ItemsMenuProps } from "../../interfaces/ItemsMenu";
 import "./menuStyles.css";
+import { ItemsMenuProps } from "./interfaces";
 
 interface Props {
   items: ItemsMenuProps[];
