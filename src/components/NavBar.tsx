@@ -3,6 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { NavLink } from "react-router-dom";
+import { Paths } from "../router/routes";
 
 export const NavBar = ({ children }: { children?: JSX.Element }) => {
   return (
@@ -11,7 +12,7 @@ export const NavBar = ({ children }: { children?: JSX.Element }) => {
         <Toolbar>
           <menu>{children}</menu>
 
-          <NavLink to={"/"}>
+          <NavLink to={Paths.INDEX}>
             <Button sx={{ ml: -1, color: "white" }}>
               <Icon>home</Icon>
             </Button>

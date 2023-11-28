@@ -1,12 +1,29 @@
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { CircularProgress } from "@mui/material";
+import { LoadingPage } from "../components";
 import { PublicLayout, SupportLayout } from "../layout";
 import { errorLoader, loaderItemsMenu } from "../loaders";
 import { HomePage } from "../pages";
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 const ParcelTest = lazy(() => import("../pages/ParcelTest"));
+
+const Posts = lazy(() => import("../pages/JSONPLACEHOLDER/Posts"));
+const Comments = lazy(() => import("../pages/JSONPLACEHOLDER/Comments"));
+const Todos = lazy(() => import("../pages/JSONPLACEHOLDER/Todos"));
+const Users = lazy(() => import("../pages/JSONPLACEHOLDER/Users"));
+
+const Characters = lazy(() => import("../pages/RICK&MORTY/Characters"));
+const Locations = lazy(() => import("../pages/RICK&MORTY/Locations"));
+const Episodes = lazy(() => import("../pages/RICK&MORTY/Episodes"));
+
+export enum Paths {
+  INDEX = "/",
+  PARCEL_TEST = "parcel",
+  JSONPLACEHOLDER = "jsonplaceholder",
+  RICK_AND_MORTY = "rickandmorty",
+  ERROR_PAGE = "error-page",
+}
 
 export const router = createBrowserRouter(
   [
@@ -24,22 +41,84 @@ export const router = createBrowserRouter(
         {
           path: "parcel",
           element: (
-            <Suspense fallback={<CircularProgress />}>
+            <LoadingPage>
               <ParcelTest />
-            </Suspense>
+            </LoadingPage>
           ),
         },
         {
-          path: "jsonplaceholder/",
-          children: [],
+          path: Paths.JSONPLACEHOLDER,
+          children: [
+            {
+              path: "posts",
+              element: (
+                <LoadingPage>
+                  <Posts />
+                </LoadingPage>
+              ),
+            },
+            {
+              path: "comments",
+              element: (
+                <LoadingPage>
+                  <Comments />
+                </LoadingPage>
+              ),
+            },
+            {
+              path: "todos",
+              element: (
+                <LoadingPage>
+                  <Todos />
+                </LoadingPage>
+              ),
+            },
+            {
+              path: "users",
+              element: (
+                <LoadingPage>
+                  <Users />
+                </LoadingPage>
+              ),
+            },
+          ],
         },
         {
-          path: "error-page",
+          path: Paths.RICK_AND_MORTY,
+          children: [
+            {
+              path: "characters",
+              element: (
+                <LoadingPage>
+                  <Characters />
+                </LoadingPage>
+              ),
+            },
+            {
+              path: "locations",
+              element: (
+                <LoadingPage>
+                  <Locations />
+                </LoadingPage>
+              ),
+            },
+            {
+              path: "episodes",
+              element: (
+                <LoadingPage>
+                  <Episodes />
+                </LoadingPage>
+              ),
+            },
+          ],
+        },
+        {
+          path: Paths.ERROR_PAGE,
           loader: errorLoader,
           element: (
-            <Suspense fallback={<CircularProgress />}>
+            <LoadingPage>
               <ErrorPage />
-            </Suspense>
+            </LoadingPage>
           ),
         },
       ],

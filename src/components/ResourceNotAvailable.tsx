@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { Box, Button, Divider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { CardContainer } from ".";
+import { Paths } from "../router/routes";
 
 const ResourceNotAvailable = () => {
   return (
@@ -24,7 +25,7 @@ const ResourceNotAvailable = () => {
           Recargar
         </Button>
 
-        <NavLink to="/">
+        <NavLink to={Paths.INDEX}>
           <Button>Ir al inicio</Button>
         </NavLink>
       </Box>
