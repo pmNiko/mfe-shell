@@ -18,7 +18,7 @@ import { Paths } from "../../router/routes";
 import { useEffect, useState } from "react";
 import { useGetApi } from "../../hooks";
 import { useGetTodos } from "../../api/JsonPlacecholder";
-import logo from "/user.png";
+import { avatars } from "./avatarImages";
 
 export default () => {
   const dataLoader = useLoaderData() as TodoResponse[];
@@ -64,7 +64,7 @@ export default () => {
             <Box key={todo.id + i}>
               <ListItem alignItems="flex-start">
                 <ListItemAvatar>
-                  <Avatar alt="Remy Sharp" src={logo} />
+                  <Avatar alt="Remy Sharp" src={avatars[i + 1]} />
                 </ListItemAvatar>
                 <ListItemText
                   primary={todo.title}

@@ -15,7 +15,7 @@ import Avatar from "@mui/material/Avatar";
 import { useGetApi } from "../../hooks";
 import { useGetUsers } from "../../api/JsonPlacecholder";
 import { Paths } from "../../router/routes";
-import logo from "/user.png";
+import { avatars } from "./avatarImages";
 
 export default () => {
   const { data: users, error, loading } = useGetApi(useGetUsers, {});
@@ -44,7 +44,7 @@ export default () => {
                 <Box key={user.id + i}>
                   <ListItem alignItems="flex-start">
                     <ListItemAvatar>
-                      <Avatar alt={user.name} src={logo} />
+                      <Avatar alt={user.name} src={avatars[i + 1]} />
                     </ListItemAvatar>
                     <ListItemText
                       primary={user.username}
