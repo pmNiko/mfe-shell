@@ -46,7 +46,7 @@ export const HomePage = () => {
       })
       .flatMap((section) => section) as InternalItemCardProps[];
 
-    setItems([...simpleItems, ...compositeItems]);
+    setItems([...compositeItems, ...simpleItems]);
   }, []);
 
   return (

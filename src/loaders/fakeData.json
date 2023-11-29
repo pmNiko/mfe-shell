@@ -34,17 +34,6 @@
       {
         "id": 2,
         "position": 2,
-        "title": "Tareas",
-        "route": "/todos",
-        "isEnabled": true,
-        "isProtected": false,
-        "internal": true,
-        "description": "Tareas de prueba para la prueba de concepto.",
-        "iconname": "list_alt"
-      },
-      {
-        "id": 3,
-        "position": 3,
         "title": "Usuarios",
         "route": "/users",
         "isEnabled": true,
@@ -52,6 +41,17 @@
         "internal": true,
         "description": "Usuarios de prueba para la prueba de concepto.",
         "iconname": "group"
+      },
+      {
+        "id": 3,
+        "position": 3,
+        "title": "Tareas",
+        "route": "/todos",
+        "isEnabled": true,
+        "isProtected": false,
+        "internal": true,
+        "description": "Tareas de prueba para la prueba de concepto.",
+        "iconname": "list_alt"
       }
     ]
   },
