@@ -1,14 +1,10 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { useGetPosts, useGetTodos } from "../api/JsonPlacecholder";
 import { LoadingPage } from "../components";
 import { PublicLayout, SupportLayout } from "../layout";
 import { errorLoader, loaderItemsMenu } from "../loaders";
 import { HomePage } from "../pages";
-import {
-  useGetPosts,
-  useGetComments,
-  useGetTodos,
-} from "../api/JsonPlacecholder";
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 const ParcelTest = lazy(() => import("../pages/ParcelTest"));
