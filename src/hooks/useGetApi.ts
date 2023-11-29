@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 
 interface EstraOptions {
   manual?: boolean;
+  refetching?: null | any;
 }
 
 export const useGetApi = <T>(
   request: (param?: any) => Promise<T>,
-  { manual = false }: EstraOptions
+  { manual = false, refetching = null }: EstraOptions
 ) => {
   const [loading, setLoading] = useState(false);
   const [data, setdata] = useState([] as T | {} as T);
   const [error, setError] = useState(false);
+  const [lastRequestIsEmpty, setLastRequestIsEmpty] = useState(false);
 
   const doRequest = async () => {
     try {
@@ -18,7 +20,12 @@ export const useGetApi = <T>(
 
       const response = await request();
 
-      setdata(response);
+      if (JSON.stringify(response).length > 2) {
+        setLastRequestIsEmpty(false);
+        setdata(response);
+      } else {
+        setLastRequestIsEmpty(true);
+      }
 
       setLoading(false);
     } catch (error) {
@@ -32,10 +39,15 @@ export const useGetApi = <T>(
     !manual && doRequest();
   }, []);
 
+  useEffect(() => {
+    refetching !== null && doRequest();
+  }, [refetching]);
+
   return {
     loading,
     error,
     data,
     doRequest,
+    lastRequestIsEmpty,
   };
 };
