@@ -8,6 +8,7 @@
     "dev": "vite",
     "dev:mode-example": "vite --mode staging",
     "build": "tsc && vite build",
+    "build:prod": "tsc && vite build --mode production ",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "deploy": "yarn build && yarn preview"
