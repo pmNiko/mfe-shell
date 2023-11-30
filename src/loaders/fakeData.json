@@ -114,17 +114,6 @@
   {
     "id": 3,
     "position": 3,
-    "title": "¿Quienes somos?",
-    "route": "/about",
-    "isEnabled": true,
-    "isProtected": false,
-    "internal": true,
-    "description": "Acerca de nosotros, página de concepto.",
-    "iconname": "handshake"
-  },
-  {
-    "id": 4,
-    "position": 4,
     "title": "Módulo bloqueado",
     "route": "/unavailable",
     "isEnabled": false,
@@ -134,8 +123,8 @@
     "iconname": "block"
   },
   {
-    "id": 5,
-    "position": 5,
+    "id": 4,
+    "position": 4,
     "title": "Módulo Protegido",
     "route": "/isProtectedmodule",
     "isEnabled": true,
@@ -145,8 +134,8 @@
     "iconname": "close"
   },
   {
-    "id": 6,
-    "position": 6,
+    "id": 5,
+    "position": 5,
     "title": "Google",
     "route": "https://www.google.com",
     "isEnabled": true,
@@ -156,8 +145,8 @@
     "iconname": "travel_explore"
   },
   {
-    "id": 7,
-    "position": 7,
+    "id": 6,
+    "position": 6,
     "title": "NASA",
     "route": "https://www.nasa.gov/",
     "isEnabled": true,

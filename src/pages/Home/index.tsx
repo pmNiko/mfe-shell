@@ -103,16 +103,16 @@ const ItemCard = ({
         boxShadow: 3,
         textAlign: "center",
         borderRadius: "5%",
-        cursor: disabled ? "default" : "pointer",
+        cursor: disabled || isProtected ? "default" : "pointer",
+        color: disabled || isProtected ? "#ccc" : "default",
+        pointerEvents: disabled || isProtected ? "none" : "auto",
         webkitTouchCallout: "none",
         webkitUserSelect: "none",
         mozUserSelect: "none",
         msUserSelect: "none",
         userSelect: "none",
-        color: disabled ? "#ccc" : "default",
       }}
       onClick={click}
-      hidden={isProtected}
     >
       <Box py={3} px={1}>
         <Icon>{iconname}</Icon>
