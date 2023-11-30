@@ -71,7 +71,7 @@ export default () => {
           </Card>
         )}
       </Box>
-      <Box display="flex" justifyContent="space-evenly" mb={4}>
+      <Box display="flex" justifyContent="space-evenly" mb={4} mt={1}>
         <NavLink to={Paths.INDEX}>
           <Button size="small" color="secondary">
             Regresar al Inicio

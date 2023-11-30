@@ -28,69 +28,86 @@ export default () => {
         <Grid container spacing={2} p={4}>
           {characters.map((character, i) => (
             <Grid sm={6} key={character.id + i} item xs={12} md={6} lg={3}>
-              <Card
-                sx={{
-                  boxShadow: 3,
-                  height: 150,
-                  maxHeight: 150,
-                  display: "flex",
-                }}
+              <NavLink
+                style={{ textDecoration: "none" }}
+                to={`/${Paths.RICK_AND_MORTY}/character/${character.id}`}
               >
-                <CardContent sx={{ width: "50%" }}>
-                  <Typography
-                    sx={{
-                      fontSize: "0.7em",
-                      textAlign: "start",
-                      color: "GrayText",
-                      mt: -1,
-                      mb: 1,
-                    }}
-                  >
-                    {character.id}
-                  </Typography>
+                <Card
+                  sx={{
+                    boxShadow: 3,
+                    height: 150,
+                    maxHeight: 150,
+                    display: "flex",
+                  }}
+                >
+                  <CardContent sx={{ width: "50%" }}>
+                    <Typography
+                      sx={{
+                        fontSize: "0.7em",
+                        textAlign: "start",
+                        color: "GrayText",
+                        mt: -1,
+                        mb: 1,
+                      }}
+                    >
+                      {character.id}
+                    </Typography>
 
-                  <Typography
-                    sx={{ mb: 1.5, fontSize: "0.5" }}
-                    fontWeight="bold"
-                    height={20}
-                    overflow="hidden"
-                    variant="subtitle1"
-                  >
-                    {character.name}
-                  </Typography>
-                  <Typography variant="subtitle2" height={30} overflow="hidden">
-                    {character.gender}
-                  </Typography>
+                    <Typography
+                      sx={{ mb: 1.5, fontSize: "0.5" }}
+                      fontWeight="bold"
+                      height={20}
+                      overflow="hidden"
+                      variant="subtitle1"
+                    >
+                      {character.name}
+                    </Typography>
+                    <Typography
+                      variant="subtitle2"
+                      height={30}
+                      overflow="hidden"
+                    >
+                      {character.gender === "Male" ? "Masculino" : "Femenino"}
+                    </Typography>
 
-                  <>
-                    {character.status === "Alive" ? (
-                      <Box display="flex" pl={1.5} mt={1}>
-                        <Icon fontSize="small" color="success">
-                          check
-                        </Icon>
-                        <Typography ml={1} fontSize={"0.8em"}>
-                          Activo
-                        </Typography>
-                      </Box>
-                    ) : (
-                      <Box display="flex" pl={1.5} mt={1}>
-                        <Icon fontSize="small" color="error">
-                          radio_button_checked
-                        </Icon>
-                        <Typography ml={1} fontSize={"0.8em"}>
-                          Inactivo
-                        </Typography>
-                      </Box>
-                    )}
-                  </>
-                </CardContent>
-                <CardMedia
-                  component="img"
-                  sx={{ width: "50%" }}
-                  image={character.image}
-                  alt={character.name}
-                />
-              </Card>
+                    <>
+                      {character.status === "Alive" ? (
+                        <Box
+                          display="flex"
+                          justifyContent="center"
+                          ml={-2}
+                          gap={0.5}
+                          mt={1}
+                        >
+                          <Icon fontSize="small" color="success">
+                            check
+                          </Icon>
+                          <Typography fontSize={"0.8em"}>Activo</Typography>
+                        </Box>
+                      ) : (
+                        <Box
+                          display="flex"
+                          justifyContent="center"
+                          ml={-2}
+                          gap={0.5}
+                          mt={1}
+                        >
+                          <Icon fontSize="small" color="error">
+                            radio_button_checked
+                          </Icon>
+                          <Typography fontSize={"0.8em"}>Inactivo</Typography>
+                        </Box>
+                      )}
+                    </>
+                  </CardContent>
+                  <CardMedia
+                    component="img"
+                    sx={{ width: "50%" }}
+                    image={character.image}
+                    alt={character.name}
+                  />
+                </Card>
+              </NavLink>
             </Grid>
           ))}
 

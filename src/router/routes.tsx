@@ -16,6 +16,7 @@ const Todos = lazy(() => import("../pages/JSONPLACEHOLDER/Todos"));
 const Users = lazy(() => import("../pages/JSONPLACEHOLDER/Users"));
 
 const Characters = lazy(() => import("../pages/RICK&MORTY/Characters"));
+const Character = lazy(() => import("../pages/RICK&MORTY/Character"));
 const Locations = lazy(() => import("../pages/RICK&MORTY/Locations"));
 const Episodes = lazy(() => import("../pages/RICK&MORTY/Episodes"));
 
@@ -103,6 +104,14 @@ export const router = createBrowserRouter(
               element: (
                 <LoadingPage>
                   <Characters />
+                </LoadingPage>
+              ),
+            },
+            {
+              path: "character/:characterID",
+              element: (
+                <LoadingPage>
+                  <Character />
                 </LoadingPage>
               ),
             },

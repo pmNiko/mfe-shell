@@ -15,3 +15,6 @@ export const useGetCharacters = async (offset: number = 0) => {
     `/character/[${arrayCharacters}]`
   )) as CharacterResponse[];
 };
+
+export const useGetCharacterByID = async (id: string) =>
+  (await useGetRickAndMorty(`/character/${id}`)) as CharacterResponse;
