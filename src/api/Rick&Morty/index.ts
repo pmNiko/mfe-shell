@@ -1,3 +1,3 @@
 export * from "./useCharacters";
-export * from "./useGetEpisodes";
+export * from "./useEpisodes";
 export * from "./useLocations";
