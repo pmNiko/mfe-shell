@@ -1,9 +1,13 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { useGetPosts, useGetTodos } from "../api/JsonPlacecholder";
 import { LoadingPage } from "../components";
 import { PublicLayout, SupportLayout } from "../layout";
-import { errorLoader, loaderItemsMenu } from "../loaders";
+import {
+  errorLoader,
+  loaderItemsMenu,
+  loaderPosts,
+  loaderTodos,
+} from "../loaders";
 import { HomePage } from "../pages";
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
@@ -54,7 +58,7 @@ export const router = createBrowserRouter(
           children: [
             {
               path: "posts",
-              loader: () => useGetPosts(),
+              loader: loaderPosts,
               element: (
                 <LoadingPage>
                   <Posts />
@@ -87,7 +91,7 @@ export const router = createBrowserRouter(
             },
             {
               path: "todos",
-              loader: () => useGetTodos(),
+              loader: loaderTodos,
               element: (
                 <LoadingPage>
                   <Todos />
