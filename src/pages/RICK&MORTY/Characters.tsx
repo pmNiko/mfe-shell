@@ -1,16 +1,15 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import {
   Box,
   Button,
   Card,
   CardContent,
   CardMedia,
-  Divider,
   Grid,
   Icon,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useGetCharacters } from "../../api/Rick&Morty";
 import { CardContainer } from "../../components";
 import { useGetApi } from "../../hooks";
@@ -102,7 +101,6 @@ export default () => {
                   </CardContent>
                   <CardMedia
                     component="img"
-                    sx={{ width: "50%" }}
                     image={character.image}
                     alt={character.name}
                   />
@@ -111,7 +109,7 @@ export default () => {
             </Grid>
           ))}
 
-          <Grid item xs={12} mt={4} mb={-5}>
+          <Grid item xs={12} mt={4}>
             <Box display="flex" justifyContent="space-evenly" mb={4}>
               <Button
                 size="small"
@@ -133,8 +131,7 @@ export default () => {
         </Grid>
       </Box>
 
-      <Box textAlign="center" mb={4}>
-        <Divider sx={{ mx: 4, mb: 2 }} />
+      <Box textAlign="center" mb={4} mt={-2}>
         <NavLink to={Paths.INDEX}>
           <Button size="small" color="secondary">
             Regresar al Inicio

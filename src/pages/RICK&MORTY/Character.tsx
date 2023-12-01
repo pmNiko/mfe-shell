@@ -28,7 +28,7 @@ export default () => {
       md={8}
       lg={5}
       title={`Detalle del Personaje ${characterID}`}
-      minHeight="65vh"
+      minHeight="78vh"
     >
       <Box textAlign="center">
         {error && <Typography>Se produjo un error en la petición.</Typography>}
@@ -39,9 +39,16 @@ export default () => {
             <Typography>Recuperando datos del usuario...</Typography>
           </>
         ) : (
-          <Card sx={{ mx: 6, px: 3, mt: 3 }}>
+          <Card sx={{ mx: 6, px: 3, mt: 3, mb: 2 }}>
             <CardMedia
-              sx={{ width: 300, height: 300, mx: "auto" }}
+              sx={{
+                width: 300,
+                height: 300,
+                mx: "auto",
+                mt: 2,
+                borderRadius: 3,
+                boxShadow: 3,
+              }}
               component="img"
               image={character.image}
               alt={character.name}

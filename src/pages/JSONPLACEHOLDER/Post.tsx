@@ -22,13 +22,18 @@ export default () => {
       sm={10}
       md={8}
       lg={5}
-      title="Detalle del post"
-      justifyTarget="space-between"
+      mb={16.5}
       minHeight="65vh"
+      title="Detalle del post"
     >
-      <Box textAlign="center">
-        <Typography>Post ID {postID}</Typography>
+      <Box textAlign="center" mt={-12}>
+        <Typography variant="subtitle1" fontWeight="bold">
+          {postData.data.title}
+        </Typography>
+        <Typography variant="caption">ID: {postID}</Typography>
+      </Box>
 
+      <Box textAlign="center" mt={-7}>
         {userData.error && (
           <Typography>Se produjo un error en la petición.</Typography>
         )}

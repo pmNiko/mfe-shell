@@ -65,7 +65,7 @@ export default () => {
           <Grid container spacing={2} p={4}>
             {commentsData.data.map((comment, i) => (
               <Grid key={comment.id + i} item xs={12} md={4} lg={3}>
-                <Card sx={{ boxShadow: 3, height: 160, maxHeight: 160 }}>
+                <Card sx={{ boxShadow: 3, height: 150, maxHeight: 150 }}>
                   <CardContent>
                     <Typography
                       sx={{ fontSize: 14 }}
@@ -96,7 +96,7 @@ export default () => {
               </Grid>
             ))}
 
-            <Grid item xs={12} mt={2} mb={-5}>
+            <Grid item xs={12} mt={4}>
               <Box display="flex" justifyContent="space-evenly" mb={4}>
                 <Button
                   size="small"
@@ -119,9 +119,7 @@ export default () => {
         )}
       </Box>
 
-      <Divider sx={{ mx: 4 }} />
-
-      <Box textAlign="center" my={4}>
+      <Box textAlign="center" mb={4} mt={-2}>
         <NavLink to={Paths.INDEX}>
           <Button size="small" color="secondary">
             Regresar al Inicio

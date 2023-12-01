@@ -68,8 +68,6 @@ export default () => {
         ))}
       </Grid>
 
-      <Divider sx={{ mx: 4, mb: 4 }} />
-
       <Box mb={4} textAlign="center">
         <NavLink to={Paths.INDEX}>
           <Button size="small" color="secondary">

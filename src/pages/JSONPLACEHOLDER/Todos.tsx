@@ -67,9 +67,8 @@ export default () => {
                   <Avatar alt="Remy Sharp" src={avatars[i + 1]} />
                 </ListItemAvatar>
                 <ListItemText
-                  primary={todo.title}
-                  secondary={
-                    <>
+                  primary={
+                    <Typography>
                       {todo.completed ? (
                         <Icon color="success" fontSize="small">
                           done
@@ -77,6 +76,20 @@ export default () => {
                       ) : (
                         <Icon fontSize="small"> check_box_outline_blank</Icon>
                       )}
+                    </Typography>
+                  }
+                  secondary={
+                    <>
+                      <Typography
+                        sx={{ ml: 1, display: "inline" }}
+                        variant="caption"
+                        color="text.secondary"
+                      >
+                        Prioridad {todo.id}
+                      </Typography>
+                      <Typography pl={1} fontSize={"0.9em"}>
+                        {todo.title}
+                      </Typography>
                     </>
                   }
                 />

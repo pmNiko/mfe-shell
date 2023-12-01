@@ -95,7 +95,7 @@ export default () => {
           </Grid>
         ))}
 
-        <Grid item xs={12} mt={4} mb={-5}>
+        <Grid item xs={12} mt={4}>
           <Box display="flex" justifyContent="space-evenly" mb={4}>
             <Button
               size="small"
@@ -116,8 +116,7 @@ export default () => {
         </Grid>
       </Grid>
 
-      <Box textAlign="center" mb={4}>
-        <Divider sx={{ mx: 4, mb: 2 }} />
+      <Box textAlign="center" mb={4} mt={-4}>
         <NavLink to={Paths.INDEX}>
           <Button size="small" color="secondary">
             Regresar al Inicio
