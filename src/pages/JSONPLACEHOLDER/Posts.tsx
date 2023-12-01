@@ -4,12 +4,11 @@ import {
   Card,
   CardActions,
   CardContent,
-  Divider,
   Grid,
   Typography,
 } from "@mui/material";
-import { CardContainer } from "../../components";
 import { NavLink, useLoaderData } from "react-router-dom";
+import { CardContainer } from "../../components";
 import { PostResponse } from "../../interfaces/JsonPlaceholderApi/Posts";
 import { Paths } from "../../router/routes";
 

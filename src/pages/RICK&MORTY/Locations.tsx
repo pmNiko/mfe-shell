@@ -1,15 +1,14 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import {
   Box,
   Button,
   Card,
   CardContent,
-  Divider,
   Grid,
   Icon,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useGetLocations } from "../../api/Rick&Morty";
 import { CardContainer } from "../../components";
 import { useGetApi } from "../../hooks";
