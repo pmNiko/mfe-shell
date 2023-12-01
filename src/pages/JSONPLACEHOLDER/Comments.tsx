@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import {
   Box,
   Button,
@@ -11,16 +9,17 @@ import {
   Icon,
   Typography,
 } from "@mui/material";
-import { CardContainer } from "../../components";
-import { CommentResponse } from "../../interfaces/JsonPlaceholderApi/Comments";
-import { Paths } from "../../router/routes";
-import { useGetApi } from "../../hooks";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useGetComments } from "../../api/JsonPlacecholder";
+import { CardContainer } from "../../components";
+import { useGetApi } from "../../hooks";
+import { Paths } from "../../router/routes";
 
 export default () => {
   const limit = 12;
   const [offset, setOffset] = useState(0);
-  const commentsData = useGetApi<CommentResponse[]>(
+  const commentsData = useGetApi(
     () => useGetComments(`/comments?_start=${offset}&_limit=${limit}`),
     {
       manual: true,
