@@ -5,6 +5,15 @@ interface EstraOptions {
   refetching?: null | any;
 }
 
+/**
+ * useGetApi
+ *  - Manejador de estado de peticiones asincronas.
+ *  - Las opciones extras contoenen dos props:
+ *    1. manual: si se cambia a true deberá usar doRequest para que se realice la petición.
+ *    2. refetching: esta representa la dependencia de refetching por defecto es nula.
+ * @param request (param?: any) => Promise<T>
+ * @param?  { manual = false, refetching = null }
+ */
 export const useGetApi = <T>(
   request: (param?: any) => Promise<T>,
   { manual = false, refetching = null }: EstraOptions
