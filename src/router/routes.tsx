@@ -148,8 +148,8 @@ export const router = createBrowserRouter(
         },
       ],
     },
-  ],
-  {
-    basename: "/mfe-shell/",
-  }
+  ]
+  // {
+  //   basename: import.meta.env.VITE_BASENAME,
+  // }
 );
