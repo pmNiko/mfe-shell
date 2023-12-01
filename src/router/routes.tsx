@@ -148,8 +148,8 @@ export const router = createBrowserRouter(
         },
       ],
     },
-  ]
-  // {
-  //   basename: import.meta.env.VITE_BASENAME,
-  // }
+  ],
+  {
+    basename: import.meta.env.VITE_BASENAME,
+  }
 );
