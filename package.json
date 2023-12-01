@@ -6,10 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "staging": "vite build --mode staging",
     "dev:mode-example": "vite --mode staging",
     "build": "tsc && vite build",
-    "staging": "vite build --mode staging",
-    "netlify": "vite build --mode netlify",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "deploy": "yarn build && yarn preview"
