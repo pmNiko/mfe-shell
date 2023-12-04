@@ -1,19 +1,14 @@
 import { Box, ImageListItem, Typography } from "@mui/material";
-import { ChangeEvent, useEffect, useState } from "react";
-import {
-  auth,
-  isAuth,
-  signIn,
-  signOut,
-  signUp,
-  signWithGoogle,
-} from "../auth/fb-auth";
+import { ChangeEvent, useState } from "react";
+import { auth, signIn, signOut, signUp, signWithGoogle } from "../auth/fb-auth";
 import { CardContainer } from "../components";
 import { useAuthorize } from "../hooks/useAuthorize";
+import { useGlobalStore } from "../store/useGlobalStore";
 
 export default () => {
+  useAuthorize();
   const [user, setUser] = useState({ email: "", password: "" });
-  const { isLogged } = useAuthorize();
+  const isLogged = useGlobalStore((state) => state.isLogged);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();

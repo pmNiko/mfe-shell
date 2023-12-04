@@ -1,5 +1,5 @@
-import { Box, CircularProgress, Typography } from "@mui/material";
 import { Suspense } from "react";
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 export const LoadingPage = ({ children }: { children: JSX.Element }) => {
   return (

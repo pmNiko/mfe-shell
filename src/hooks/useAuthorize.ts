@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
-import { auth } from "../auth/fb-auth";
 import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
+import { auth } from "../auth/fb-auth";
+import { useGlobalStore } from "../store/useGlobalStore";
 
 export const useAuthorize = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const login = useGlobalStore((state) => state.login);
+  const signOut = useGlobalStore((state) => state.signOut);
 
   useEffect(() => {
     const listener = onAuthStateChanged(auth, (user) => {
-      setIsLogged(!!user);
+      !user ? signOut() : login();
     });
 
     return () => listener();
   }, [auth]);
 
-  return {
-    isLogged,
-  };
+  return {};
 };

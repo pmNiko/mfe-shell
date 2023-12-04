@@ -1,9 +1,10 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
 import { Box, Card, Icon, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { CardContainer } from "../../components";
-import "./home.css";
 import { LoaderDataMenu } from "../../interfaces/LoaderDataMenu";
+import { useGlobalStore } from "../../store/useGlobalStore";
+import "./home.css";
 
 interface InternalItemCardProps {
   iconname: string;
@@ -15,6 +16,7 @@ interface InternalItemCardProps {
 }
 
 export const HomePage = () => {
+  const isLogged = useGlobalStore((state) => state.isLogged);
   const navigate = useNavigate();
   const { internals, externals } = useLoaderData() as LoaderDataMenu;
   const [items, setItems] = useState<InternalItemCardProps[]>([]);
@@ -60,7 +62,7 @@ export const HomePage = () => {
             iconname={item.iconname}
             click={() => navigate(item.route)}
             disabled={item.disabled}
-            isProtected={item.isProtected}
+            hidden={item.isProtected && !isLogged}
           />
         ))}
 
@@ -72,7 +74,6 @@ export const HomePage = () => {
             description={item.description!}
             iconname={item.iconname!}
             disabled={!item.isEnabled}
-            isProtected={item.isProtected}
           />
         ))}
       </div>
@@ -86,7 +87,7 @@ interface ItemCardProps {
   description: string;
   click: () => void;
   disabled: boolean;
-  isProtected: boolean;
+  hidden?: boolean;
 }
 
 const ItemCard = ({
@@ -95,17 +96,18 @@ const ItemCard = ({
   iconname,
   click,
   disabled,
-  isProtected,
+  hidden = false,
 }: ItemCardProps) => {
   return (
     <Card
       sx={{
+        display: hidden ? "none" : "show",
         boxShadow: 3,
         textAlign: "center",
         borderRadius: "5%",
-        cursor: disabled || isProtected ? "default" : "pointer",
-        color: disabled || isProtected ? "#ccc" : "default",
-        pointerEvents: disabled || isProtected ? "none" : "auto",
+        cursor: disabled ? "default" : "pointer",
+        color: disabled ? "#ccc" : "default",
+        pointerEvents: disabled ? "none" : "auto",
         webkitTouchCallout: "none",
         webkitUserSelect: "none",
         mozUserSelect: "none",

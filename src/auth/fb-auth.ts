@@ -73,6 +73,6 @@ export const signWithGoogle = () => {
   const provider = new GoogleAuthProvider();
 
   signInWithPopup(auth, provider)
-    .then((user) => console.log("Google Authentication", user))
+    .then(() => console.log("Logged with Google"))
     .catch((error) => console.log(error));
 };

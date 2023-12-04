@@ -8,6 +8,9 @@ import {
   loaderPosts,
   loaderTodos,
 } from "../loaders";
+
+import { ProtectedRoute } from "./ProtectedRoute";
+
 import { HomePage } from "../pages";
 
 const Auth = lazy(() => import("../pages/Auth"));
@@ -44,6 +47,10 @@ export const router = createBrowserRouter(
       errorElement: <SupportLayout />,
       children: [
         {
+          path: Paths.AUTH,
+          element: <Auth />,
+        },
+        {
           index: true,
           loader: loaderItemsMenu,
           element: <HomePage />,
@@ -51,9 +58,11 @@ export const router = createBrowserRouter(
         {
           path: "parcel",
           element: (
-            <LoadingPage>
-              <ParcelTest />
-            </LoadingPage>
+            <ProtectedRoute>
+              <LoadingPage>
+                <ParcelTest />
+              </LoadingPage>
+            </ProtectedRoute>
           ),
         },
         {
@@ -62,6 +71,7 @@ export const router = createBrowserRouter(
             {
               path: "posts",
               loader: loaderPosts,
+
               element: (
                 <LoadingPage>
                   <Posts />
@@ -148,10 +158,6 @@ export const router = createBrowserRouter(
               <ErrorPage />
             </LoadingPage>
           ),
-        },
-        {
-          path: Paths.AUTH,
-          element: <Auth />,
         },
       ],
     },

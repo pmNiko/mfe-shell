@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import {
   Box,
   Collapse,
@@ -9,8 +7,11 @@ import {
   ListItemText,
 } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import "./menuStyles.css";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useGlobalStore } from "../../store/useGlobalStore";
 import { ItemsMenuProps } from "./interfaces";
+import "./menuStyles.css";
 
 interface Props {
   items: ItemsMenuProps[];
@@ -18,12 +19,13 @@ interface Props {
 }
 
 export const ItemListMenu = ({ items, updatedExpadedSections }: Props) => {
+  const isLogged = useGlobalStore((state) => state.isLogged);
   if (!items) return null;
 
   return (
     <>
       {items.map((item, i) => (
-        <div key={item.title + i} hidden={item.isProtected}>
+        <div key={item.title + i} hidden={item.isProtected && !isLogged}>
           {!!item.children ? (
             <ItemWithChildren
               key={item.id + i}
@@ -36,7 +38,7 @@ export const ItemListMenu = ({ items, updatedExpadedSections }: Props) => {
                 key={item.id + i}
                 title={item.title}
                 disabled={!item.isEnabled}
-                isProtected={item.isProtected}
+                hidden={item.isProtected && !isLogged}
                 iconname={item.iconname!}
                 route={item.route}
               />
@@ -47,7 +49,6 @@ export const ItemListMenu = ({ items, updatedExpadedSections }: Props) => {
       <SimpleItem
         title="Pagina de error"
         disabled={false}
-        isProtected={false}
         iconname={"error"}
         route="/error-page"
       />
@@ -88,7 +89,7 @@ const ItemWithChildren = ({
               key={child.id + i}
               iconname={child.iconname!}
               disabled={!item.isEnabled || !child.isEnabled}
-              isProtected={child.isProtected}
+              hidden={child.isProtected}
               route={`${item.route}${child.route}`}
               title={child.title}
             />
@@ -100,15 +101,15 @@ const ItemWithChildren = ({
 };
 
 const SimpleItem = ({
-  isProtected,
+  hidden = false,
   route,
-  disabled,
+  disabled = false,
   iconname,
   title,
 }: {
-  isProtected: boolean;
+  hidden?: boolean;
   route: string;
-  disabled: boolean;
+  disabled?: boolean;
   iconname: string;
   title: string;
 }) => {
@@ -118,7 +119,7 @@ const SimpleItem = ({
       className="custom-nav-link"
       style={{ pointerEvents: disabled ? "none" : "auto" }}
     >
-      <ListItemButton disabled={disabled} hidden={isProtected}>
+      <ListItemButton disabled={disabled} hidden={hidden}>
         <ListItemIcon>
           <Icon>{iconname}</Icon>
         </ListItemIcon>
