@@ -10,6 +10,8 @@ import {
 } from "../loaders";
 import { HomePage } from "../pages";
 
+const Auth = lazy(() => import("../pages/Auth"));
+
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 const ParcelTest = lazy(() => import("../pages/ParcelTest"));
 
@@ -30,6 +32,7 @@ export enum Paths {
   JSONPLACEHOLDER = "jsonplaceholder",
   RICK_AND_MORTY = "rickandmorty",
   ERROR_PAGE = "error-page",
+  AUTH = "auth",
 }
 
 export const router = createBrowserRouter(
@@ -145,6 +148,10 @@ export const router = createBrowserRouter(
               <ErrorPage />
             </LoadingPage>
           ),
+        },
+        {
+          path: Paths.AUTH,
+          element: <Auth />,
         },
       ],
     },
