@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, ImageListItem, Typography } from "@mui/material";
 import { ChangeEvent, useEffect, useState } from "react";
 import {
   auth,
@@ -23,13 +23,28 @@ export default () => {
     }));
   };
 
+  console.log(auth);
+
   return (
     <CardContainer title="Página de autenticación">
-      <Box mx="auto" width={"60%"} mt={5}>
+      <Box display="flex" justifyContent="center" mt={5}>
         {isLogged ? (
-          <Typography>
-            {auth.currentUser?.displayName || auth.currentUser?.email}
-          </Typography>
+          <Box display="flex">
+            <Typography pt={1.5}>
+              {auth.currentUser?.displayName || auth.currentUser?.email}
+            </Typography>
+            {auth.currentUser?.photoURL && (
+              <ImageListItem>
+                <img
+                  style={{ width: "50px", height: "50px" }}
+                  srcSet={auth.currentUser?.photoURL}
+                  src={auth.currentUser?.photoURL}
+                  alt={auth.currentUser?.displayName || ""}
+                  loading="lazy"
+                />
+              </ImageListItem>
+            )}
+          </Box>
         ) : (
           <Typography>Debe loguearse</Typography>
         )}
