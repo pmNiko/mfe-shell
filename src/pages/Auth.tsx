@@ -23,8 +23,6 @@ export default () => {
     }));
   };
 
-  console.log(auth);
-
   return (
     <CardContainer title="Página de autenticación">
       <Box display="flex" justifyContent="center" mt={5}>
