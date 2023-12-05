@@ -1,10 +1,9 @@
 import Grid from "@mui/material/Grid";
 import { CardContainer } from "../components";
-import { Box } from "@mui/material";
 
 export default () => {
   return (
-    <CardContainer lg={11} title="Galería de imagenes">
+    <CardContainer lg={8} title="Galería de imagenes">
       <Grid container spacing={1}>
         <Grid item xs={12} md={4}>
           <img
