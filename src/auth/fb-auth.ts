@@ -54,17 +54,6 @@ export const signIn = (email: string, password: string) => {
     });
 };
 
-export const isAuth = () => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      console.log(uid);
-    } else {
-      console.log("User is not signed in or token is invalid");
-    }
-  });
-};
-
 export const signOut = () => {
   auth.signOut().then(() => console.log("Sign Out"));
 };
