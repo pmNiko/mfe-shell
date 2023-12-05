@@ -42,7 +42,7 @@ export const signUp = (email: string, password: string) => {
 };
 
 export const signIn = (email: string, password: string) => {
-  return signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log(userCredential.user);
     })
