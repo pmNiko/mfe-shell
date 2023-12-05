@@ -9,7 +9,15 @@ export const useAuthorize = () => {
 
   useEffect(() => {
     const listener = onAuthStateChanged(auth, (user) => {
-      !user ? signOut() : login();
+      if (!user) {
+        signOut();
+      } else {
+        login({
+          name: auth.currentUser?.displayName,
+          email: auth.currentUser?.email,
+          photo: auth.currentUser?.photoURL,
+        });
+      }
     });
 
     return () => listener();
