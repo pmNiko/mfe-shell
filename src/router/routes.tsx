@@ -17,6 +17,7 @@ const Auth = lazy(() => import("../pages/Auth"));
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 const ParcelTest = lazy(() => import("../pages/ParcelTest"));
+const Gallery = lazy(() => import("../pages/Gallery"));
 
 const Posts = lazy(() => import("../pages/JSONPLACEHOLDER/Posts"));
 const Post = lazy(() => import("../pages/JSONPLACEHOLDER/Post"));
@@ -58,9 +59,17 @@ export const router = createBrowserRouter(
         {
           path: "parcel",
           element: (
+            <LoadingPage>
+              <ParcelTest />
+            </LoadingPage>
+          ),
+        },
+        {
+          path: "isProtectedmodule",
+          element: (
             <ProtectedRoute>
               <LoadingPage>
-                <ParcelTest />
+                <Gallery />
               </LoadingPage>
             </ProtectedRoute>
           ),
