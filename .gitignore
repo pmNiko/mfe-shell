@@ -27,3 +27,5 @@ yarn.lock
 .env.production
 .env.staging
 .env.netlify
+
+pnpm-lock.yaml
