@@ -1,1 +1,2 @@
-declare module "mfe-parcel/ParcelTest";
+declare module "mfe-parcel/*";
+declare module "mf-auth/*";
