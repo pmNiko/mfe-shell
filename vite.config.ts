@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
         },
         remotes: {
           "mfe-parcel": process.env.VITE_PARCEL_URL,
+          "mf-auth": process.env.VITE_AUTH,
         },
       }),
     ],

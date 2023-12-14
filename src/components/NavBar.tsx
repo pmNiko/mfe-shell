@@ -54,6 +54,15 @@ export const NavBar = ({ children }: { children?: JSX.Element }) => {
                   />
                 )}
               </Button>
+              <NavLink to={"/auth/account"}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  sx={{ color: "white" }}
+                >
+                  Login federado
+                </Button>
+              </NavLink>
             </Box>
           </Typography>
         </Toolbar>

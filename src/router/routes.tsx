@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { LoadingPage } from "../components";
 import { PublicLayout, SupportLayout } from "../layout";
@@ -12,8 +12,9 @@ import {
 import { ProtectedRoute } from "./ProtectedRoute";
 
 import { HomePage } from "../pages";
+import { WithErrorBoundary } from "../components/WithErrorBoundary";
 
-const Auth = lazy(() => import("../pages/Auth"));
+const RouterAuth = lazy(() => import("mf-auth/RouterAuth"));
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 const ParcelTest = lazy(() => import("../pages/ParcelTest"));
@@ -36,21 +37,35 @@ export enum Paths {
   JSONPLACEHOLDER = "jsonplaceholder",
   RICK_AND_MORTY = "rickandmorty",
   ERROR_PAGE = "error-page",
-  AUTH = "auth",
+  AUTH = "account/*",
 }
 
 export const router = createBrowserRouter(
   [
     {
-      path: "/",
+      path: "/auth",
       loader: loaderItemsMenu,
       element: <PublicLayout />,
       errorElement: <SupportLayout />,
       children: [
         {
           path: Paths.AUTH,
-          element: <Auth />,
+          element: (
+            <Suspense fallback={<p>Cargando...</p>}>
+              <WithErrorBoundary>
+                <RouterAuth basepath={"/auth"} />
+              </WithErrorBoundary>
+            </Suspense>
+          ),
         },
+      ],
+    },
+    {
+      path: "/",
+      loader: loaderItemsMenu,
+      element: <PublicLayout />,
+      errorElement: <SupportLayout />,
+      children: [
         {
           index: true,
           loader: loaderItemsMenu,
