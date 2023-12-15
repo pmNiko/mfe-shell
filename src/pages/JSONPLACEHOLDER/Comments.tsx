@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 import { useGetComments } from "../../api/JsonPlacecholder";
 import { CardContainer } from "../../components";
 import { useGetApi } from "../../hooks";
-import { Paths } from "../../router/routes";
+import { Routes } from "../../router";
 
 export default () => {
   const limit = 12;
@@ -119,7 +119,7 @@ export default () => {
       </Box>
 
       <Box textAlign="center" mb={4} mt={-2}>
-        <NavLink to={Paths.INDEX}>
+        <NavLink to={Routes.index.routerPath}>
           <Button size="small" color="secondary">
             Regresar al Inicio
           </Button>

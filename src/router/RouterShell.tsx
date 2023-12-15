@@ -13,6 +13,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 
 import { HomePage } from "../pages";
 import { WithErrorBoundary } from "../components/WithErrorBoundary";
+import { Routes } from "./index";
 
 const RouterAuth = lazy(() => import("mf-auth/RouterAuth"));
 
@@ -31,29 +32,20 @@ const Character = lazy(() => import("../pages/RICK&MORTY/Character"));
 const Locations = lazy(() => import("../pages/RICK&MORTY/Locations"));
 const Episodes = lazy(() => import("../pages/RICK&MORTY/Episodes"));
 
-export enum Paths {
-  INDEX = "/",
-  PARCEL_TEST = "parcel",
-  JSONPLACEHOLDER = "jsonplaceholder",
-  RICK_AND_MORTY = "rickandmorty",
-  ERROR_PAGE = "error-page",
-  AUTH = "account/*",
-}
-
 const router = createBrowserRouter(
   [
     {
-      path: "/auth",
+      path: Routes.auth.routerPath,
       loader: loaderItemsMenu,
       element: <PublicLayout />,
       errorElement: <SupportLayout />,
       children: [
         {
-          path: Paths.AUTH,
+          path: Routes.auth.children["account"].routerPath,
           element: (
             <Suspense fallback={<p>Cargando...</p>}>
               <WithErrorBoundary>
-                <RouterAuth basepath={"/auth"} />
+                <RouterAuth basepath={Routes.index.routerPath} />
               </WithErrorBoundary>
             </Suspense>
           ),
@@ -61,7 +53,7 @@ const router = createBrowserRouter(
       ],
     },
     {
-      path: "/",
+      path: Routes.index.routerPath,
       loader: loaderItemsMenu,
       element: <PublicLayout />,
       errorElement: <SupportLayout />,
@@ -72,7 +64,7 @@ const router = createBrowserRouter(
           element: <HomePage />,
         },
         {
-          path: "parcel",
+          path: Routes.parcelTest.routerPath,
           element: (
             <LoadingPage>
               <ParcelTest />
@@ -80,7 +72,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: "isProtectedmodule",
+          path: Routes.gallery.routerPath,
           element: (
             <ProtectedRoute>
               <LoadingPage>
@@ -90,12 +82,11 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: Paths.JSONPLACEHOLDER,
+          path: Routes.jsonplaceholder.routerPath,
           children: [
             {
-              path: "posts",
+              path: Routes.jsonplaceholder.children["posts"].routerPath,
               loader: loaderPosts,
-
               element: (
                 <LoadingPage>
                   <Posts />
@@ -103,7 +94,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: "post/:postID/:userID",
+              path: Routes.jsonplaceholder.children["post"].routerPath,
               element: (
                 <LoadingPage>
                   <Post />
@@ -111,7 +102,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: "comments",
+              path: Routes.jsonplaceholder.children["comments"].routerPath,
               element: (
                 <LoadingPage>
                   <Comments />
@@ -119,7 +110,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: "users",
+              path: Routes.jsonplaceholder.children["users"].routerPath,
               element: (
                 <LoadingPage>
                   <Users />
@@ -127,7 +118,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: "todos",
+              path: Routes.jsonplaceholder.children["todos"].routerPath,
               loader: loaderTodos,
               element: (
                 <LoadingPage>
@@ -138,10 +129,10 @@ const router = createBrowserRouter(
           ],
         },
         {
-          path: Paths.RICK_AND_MORTY,
+          path: Routes.rickAndMorty.routerPath,
           children: [
             {
-              path: "characters",
+              path: Routes.rickAndMorty.children["characters"].routerPath,
               element: (
                 <LoadingPage>
                   <Characters />
@@ -149,7 +140,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: "character/:characterID",
+              path: Routes.rickAndMorty.children["character"].routerPath,
               element: (
                 <LoadingPage>
                   <Character />
@@ -157,7 +148,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: "locations",
+              path: Routes.rickAndMorty.children["locations"].routerPath,
               element: (
                 <LoadingPage>
                   <Locations />
@@ -165,7 +156,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: "episodes",
+              path: Routes.rickAndMorty.children["episodes"].routerPath,
               element: (
                 <LoadingPage>
                   <Episodes />
@@ -175,7 +166,7 @@ const router = createBrowserRouter(
           ],
         },
         {
-          path: Paths.ERROR_PAGE,
+          path: Routes.errorPage.routerPath,
           loader: errorLoader,
           element: (
             <LoadingPage>

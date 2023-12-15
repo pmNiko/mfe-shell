@@ -14,11 +14,12 @@ import {
 import { NavLink, useLoaderData } from "react-router-dom";
 import { CardContainer } from "../../components";
 import { TodoResponse } from "../../interfaces/JsonPlaceholderApi/Todos";
-import { Paths } from "../../router/routes";
+
 import { useEffect, useState } from "react";
 import { useGetApi } from "../../hooks";
 import { useGetTodos } from "../../api/JsonPlacecholder";
 import { avatars } from "./avatarImages";
+import { Routes } from "../../router";
 
 export default () => {
   const dataLoader = useLoaderData() as TodoResponse[];
@@ -109,7 +110,7 @@ export default () => {
       </Box>
 
       <Box mb={4} textAlign="center">
-        <NavLink to={Paths.INDEX}>
+        <NavLink to={Routes.index.routerPath}>
           <Button size="small" color="secondary">
             Regresar al Inicio
           </Button>

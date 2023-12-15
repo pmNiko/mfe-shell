@@ -6,8 +6,8 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthForm, CustomModal, Profile } from ".";
 import { auth } from "../auth/fb-auth";
-import { Paths } from "../router/RouterShell";
 import { useGlobalStore } from "../store/useGlobalStore";
+import { Routes } from "../router";
 
 export const NavBar = ({ children }: { children?: JSX.Element }) => {
   const isLogged = useGlobalStore((state) => state.isLogged);
@@ -21,7 +21,7 @@ export const NavBar = ({ children }: { children?: JSX.Element }) => {
         <Toolbar>
           <menu>{children}</menu>
 
-          <NavLink to={Paths.INDEX}>
+          <NavLink to={Routes.index.routerPath}>
             <Button sx={{ ml: -1, color: "white" }}>
               <Icon>home</Icon>
             </Button>

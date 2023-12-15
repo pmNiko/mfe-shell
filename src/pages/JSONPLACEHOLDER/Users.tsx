@@ -14,8 +14,9 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import { useGetApi } from "../../hooks";
 import { useGetUsers } from "../../api/JsonPlacecholder";
-import { Paths } from "../../router/routes";
+
 import { avatars } from "./avatarImages";
+import { Routes } from "../../router";
 
 export default () => {
   const { data: users, error, loading } = useGetApi(useGetUsers, {});
@@ -94,7 +95,7 @@ export default () => {
       )}
 
       <Box mb={4} textAlign="center">
-        <NavLink to={Paths.INDEX}>
+        <NavLink to={Routes.index.routerPath}>
           <Button size="small" color="secondary">
             Regresar al Inicio
           </Button>

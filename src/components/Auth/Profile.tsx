@@ -2,7 +2,7 @@ import { Avatar, Box, Button, Typography } from "@mui/material";
 import { useGlobalStore } from "../../store/useGlobalStore";
 import { signOut } from "../../auth/fb-auth";
 import { useNavigate } from "react-router-dom";
-import { Paths } from "../../router/RouterShell";
+import { Routes } from "../../router";
 
 export const Profile = ({
   color = "black",
@@ -49,7 +49,7 @@ export const Profile = ({
           onClick={() => {
             signOut();
             closeModal();
-            navigate(Paths.INDEX);
+            navigate(Routes.index.routerPath);
             window.location.reload();
           }}
         >

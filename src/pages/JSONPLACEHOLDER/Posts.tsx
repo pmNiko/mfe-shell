@@ -10,7 +10,7 @@ import {
 import { NavLink, useLoaderData } from "react-router-dom";
 import { CardContainer } from "../../components";
 import { PostResponse } from "../../interfaces/JsonPlaceholderApi/Posts";
-import { Paths } from "../../router/routes";
+import { Routes } from "../../router";
 
 export default () => {
   const data = useLoaderData() as PostResponse[];
@@ -57,7 +57,7 @@ export default () => {
               </CardContent>
               <CardActions sx={{ justifyContent: "center" }}>
                 <NavLink
-                  to={`/${Paths.JSONPLACEHOLDER}/post/${post.id}/${post.userId}`}
+                  to={`${Routes.jsonplaceholder.children["post"].absolutePath}/${post.id}/${post.userId}`}
                 >
                   <Button size="small">Detalle</Button>
                 </NavLink>
@@ -68,7 +68,7 @@ export default () => {
       </Grid>
 
       <Box mb={4} textAlign="center">
-        <NavLink to={Paths.INDEX}>
+        <NavLink to={Routes.index.routerPath}>
           <Button size="small" color="secondary">
             Regresar al Inicio
           </Button>

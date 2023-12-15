@@ -1,11 +1,17 @@
 import { Navigate } from "react-router-dom";
 import { useGlobalStore } from "../store/useGlobalStore";
-import { Paths } from "./RouterShell";
+import { Routes } from ".";
 
 export const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const isLogged = useGlobalStore((state) => state.isLogged);
 
-  if (!isLogged) return <Navigate to={`/${Paths.AUTH}`} replace />;
+  if (!isLogged)
+    return (
+      <Navigate
+        to={`/${Routes.auth.children["account"].absolutePath}`}
+        replace
+      />
+    );
 
   return children;
 };

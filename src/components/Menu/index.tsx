@@ -14,10 +14,10 @@ import {
 } from "@mui/material";
 import { ExternalItemListMenu } from "./ExternalItemListMenu";
 import { ItemListMenu } from "./ItemListMenu";
-import { Paths } from "../../router/RouterShell";
 import "./menuStyles.css";
 import { LoaderDataMenu } from "../../interfaces/LoaderDataMenu";
 import { ItemsMenuProps } from "./interfaces";
+import { Routes } from "../../router";
 
 export const Menu = () => {
   const { internals, externals } = useLoaderData() as LoaderDataMenu;
@@ -103,7 +103,7 @@ export const Menu = () => {
             <NavLink
               className="custom-nav-link"
               style={{ display: "flex" }}
-              to={Paths.INDEX}
+              to={Routes.index.routerPath}
             >
               <ListItemIcon sx={{ pt: 0.9, pl: 1 }}>
                 <Icon>home</Icon>
