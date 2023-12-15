@@ -45,7 +45,7 @@ const router = createBrowserRouter(
           element: (
             <Suspense fallback={<p>Cargando...</p>}>
               <WithErrorBoundary>
-                <RouterAuth basepath={Routes.index.routerPath} />
+                <RouterAuth basepath={Routes.auth.routerPath} />
               </WithErrorBoundary>
             </Suspense>
           ),
