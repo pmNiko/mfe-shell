@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { Box, Button, Divider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { CardContainer } from ".";
-import { Paths } from "../router/routes";
+import { Paths } from "../router/RouterShell";
 
 const ResourceNotAvailable = () => {
   return (

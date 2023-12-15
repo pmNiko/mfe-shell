@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { CardContainer } from "../components";
-import Parcel from "../parcels/ParcelTest";
+import Parcel from "../externals/ParcelTest";
 
 export default () => {
   const [data, setData] = useState({});

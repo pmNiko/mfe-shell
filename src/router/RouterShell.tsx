@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { LoadingPage } from "../components";
 import { PublicLayout, SupportLayout } from "../layout";
 import {
@@ -40,7 +40,7 @@ export enum Paths {
   AUTH = "account/*",
 }
 
-export const router = createBrowserRouter(
+const router = createBrowserRouter(
   [
     {
       path: "/auth",
@@ -190,3 +190,7 @@ export const router = createBrowserRouter(
     basename: import.meta.env.VITE_BASENAME,
   }
 );
+
+export default () => {
+  return <RouterProvider router={router} />;
+};

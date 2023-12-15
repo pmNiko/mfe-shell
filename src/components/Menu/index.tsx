@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { ExternalItemListMenu } from "./ExternalItemListMenu";
 import { ItemListMenu } from "./ItemListMenu";
-import { Paths } from "../../router/routes";
+import { Paths } from "../../router/RouterShell";
 import "./menuStyles.css";
 import { LoaderDataMenu } from "../../interfaces/LoaderDataMenu";
 import { ItemsMenuProps } from "./interfaces";

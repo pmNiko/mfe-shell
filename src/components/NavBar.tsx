@@ -6,7 +6,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthForm, CustomModal, Profile } from ".";
 import { auth } from "../auth/fb-auth";
-import { Paths } from "../router/routes";
+import { Paths } from "../router/RouterShell";
 import { useGlobalStore } from "../store/useGlobalStore";
 
 export const NavBar = ({ children }: { children?: JSX.Element }) => {

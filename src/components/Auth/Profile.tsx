@@ -2,7 +2,7 @@ import { Avatar, Box, Button, Typography } from "@mui/material";
 import { useGlobalStore } from "../../store/useGlobalStore";
 import { signOut } from "../../auth/fb-auth";
 import { useNavigate } from "react-router-dom";
-import { Paths } from "../../router/routes";
+import { Paths } from "../../router/RouterShell";
 
 export const Profile = ({
   color = "black",
