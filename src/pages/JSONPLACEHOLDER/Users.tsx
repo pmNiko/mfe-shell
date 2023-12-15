@@ -1,22 +1,14 @@
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Divider,
-  Typography,
-} from "@mui/material";
-import { CardContainer } from "../../components";
+import { Box, CircularProgress, Divider, Typography } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import { NavLink } from "react-router-dom";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import { useGetApi } from "../../hooks";
+import ListItemText from "@mui/material/ListItemText";
 import { useGetUsers } from "../../api/JsonPlacecholder";
+import { ButtonBackHome, CardContainer } from "../../components";
+import { useGetApi } from "../../hooks";
 
 import { avatars } from "./avatarImages";
-import { Routes } from "../../router";
 
 export default () => {
   const { data: users, error, loading } = useGetApi(useGetUsers, {});
@@ -95,11 +87,7 @@ export default () => {
       )}
 
       <Box mb={4} textAlign="center">
-        <NavLink to={Routes.index.routerPath}>
-          <Button size="small" color="secondary">
-            Regresar al Inicio
-          </Button>
-        </NavLink>
+        <ButtonBackHome />
       </Box>
     </CardContainer>
   );

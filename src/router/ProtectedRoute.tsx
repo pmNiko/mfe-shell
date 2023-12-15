@@ -6,12 +6,7 @@ export const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const isLogged = useGlobalStore((state) => state.isLogged);
 
   if (!isLogged)
-    return (
-      <Navigate
-        to={`/${Routes.auth.children["account"].absolutePath}`}
-        replace
-      />
-    );
+    return <Navigate to={Routes.auth.children.account.absolutePath} replace />;
 
   return children;
 };

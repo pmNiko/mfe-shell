@@ -1,5 +1,3 @@
-import { NavLink, useParams } from "react-router-dom";
-import { CardContainer } from "../../components";
 import {
   Box,
   Button,
@@ -10,7 +8,9 @@ import {
   Icon,
   Typography,
 } from "@mui/material";
+import { NavLink, useParams } from "react-router-dom";
 import { useGetCharacterByID } from "../../api/Rick&Morty";
+import { ButtonBackHome, CardContainer } from "../../components";
 import { useGetApi } from "../../hooks";
 import { Routes } from "../../router";
 
@@ -114,12 +114,8 @@ export default () => {
         )}
       </Box>
       <Box display="flex" justifyContent="space-evenly" mb={4} mt={2}>
-        <NavLink to={Routes.index.routerPath}>
-          <Button size="small" color="secondary">
-            Regresar al Inicio
-          </Button>
-        </NavLink>
-        <NavLink to={Routes.rickAndMorty.children["characters"].absolutePath}>
+        <ButtonBackHome />
+        <NavLink to={Routes.rickAndMorty.children.characters.absolutePath}>
           <Button size="small">Lista de personajes</Button>
         </NavLink>
       </Box>

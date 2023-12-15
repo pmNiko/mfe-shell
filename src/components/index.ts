@@ -6,3 +6,4 @@ export * from "./CardContainer";
 export * from "./LodingPage";
 export * from "./CustomModal";
 export * from "./Auth";
+export * from "./ButtonBackHome";

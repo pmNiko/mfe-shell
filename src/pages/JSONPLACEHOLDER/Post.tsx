@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { NavLink, useParams } from "react-router-dom";
 import { useGetPostByID, useGetUserByID } from "../../api/JsonPlacecholder";
-import { CardContainer } from "../../components";
+import { ButtonBackHome, CardContainer } from "../../components";
 import { useGetApi } from "../../hooks";
 import { Routes } from "../../router";
 
@@ -77,12 +77,8 @@ export default () => {
         )}
       </Box>
       <Box display="flex" justifyContent="space-evenly" mb={4} mt={1}>
-        <NavLink to={Routes.index.routerPath}>
-          <Button size="small" color="secondary">
-            Regresar al Inicio
-          </Button>
-        </NavLink>
-        <NavLink to={Routes.jsonplaceholder.children["posts"].absolutePath}>
+        <ButtonBackHome />
+        <NavLink to={Routes.jsonplaceholder.children.posts.absolutePath}>
           <Button size="small">Lista de posts</Button>
         </NavLink>
       </Box>

@@ -7,7 +7,7 @@ export const Routes = {
     children: {
       account: {
         routerPath: "account/*",
-        absolutePath: "/auth/account/*",
+        absolutePath: "/auth/account",
       },
     },
   },

@@ -8,11 +8,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { useGetLocations } from "../../api/Rick&Morty";
-import { CardContainer } from "../../components";
+import { ButtonBackHome, CardContainer } from "../../components";
 import { useGetApi } from "../../hooks";
-import { Routes } from "../../router";
 
 export default () => {
   const [offset, setOffset] = useState(0);
@@ -116,11 +114,7 @@ export default () => {
       </Grid>
 
       <Box textAlign="center" mb={4} mt={-4}>
-        <NavLink to={Routes.index.routerPath}>
-          <Button size="small" color="secondary">
-            Regresar al Inicio
-          </Button>
-        </NavLink>
+        <ButtonBackHome />
       </Box>
     </CardContainer>
   );

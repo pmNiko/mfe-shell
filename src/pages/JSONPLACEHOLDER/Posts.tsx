@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { NavLink, useLoaderData } from "react-router-dom";
-import { CardContainer } from "../../components";
+import { ButtonBackHome, CardContainer } from "../../components";
 import { PostResponse } from "../../interfaces/JsonPlaceholderApi/Posts";
 import { Routes } from "../../router";
 
@@ -57,7 +57,7 @@ export default () => {
               </CardContent>
               <CardActions sx={{ justifyContent: "center" }}>
                 <NavLink
-                  to={`${Routes.jsonplaceholder.children["post"].absolutePath}/${post.id}/${post.userId}`}
+                  to={`${Routes.jsonplaceholder.children.post.absolutePath}/${post.id}/${post.userId}`}
                 >
                   <Button size="small">Detalle</Button>
                 </NavLink>
@@ -68,11 +68,7 @@ export default () => {
       </Grid>
 
       <Box mb={4} textAlign="center">
-        <NavLink to={Routes.index.routerPath}>
-          <Button size="small" color="secondary">
-            Regresar al Inicio
-          </Button>
-        </NavLink>
+        <ButtonBackHome />
       </Box>
     </CardContainer>
   );

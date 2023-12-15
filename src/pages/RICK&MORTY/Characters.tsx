@@ -11,7 +11,7 @@ import {
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useGetCharacters } from "../../api/Rick&Morty";
-import { CardContainer } from "../../components";
+import { ButtonBackHome, CardContainer } from "../../components";
 import { useGetApi } from "../../hooks";
 import { Routes } from "../../router";
 
@@ -29,7 +29,7 @@ export default () => {
             <Grid sm={6} key={character.id + i} item xs={12} md={6} lg={3}>
               <NavLink
                 style={{ textDecoration: "none" }}
-                to={`${Routes.rickAndMorty.children["character"].absolutePath}/${character.id}`}
+                to={`${Routes.rickAndMorty.children.character.absolutePath}/${character.id}`}
               >
                 <Card
                   sx={{
@@ -132,11 +132,7 @@ export default () => {
       </Box>
 
       <Box textAlign="center" mb={4} mt={-2}>
-        <NavLink to={Routes.index.routerPath}>
-          <Button size="small" color="secondary">
-            Regresar al Inicio
-          </Button>
-        </NavLink>
+        <ButtonBackHome />
       </Box>
     </CardContainer>
   );
