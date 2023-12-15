@@ -7,7 +7,7 @@ export const Footer: FC = (): ReactElement => {
       sx={{
         background: "black",
         width: "100%",
-        minHeight: "20vh",
+        minHeight: "30vh",
       }}
     >
       <Container maxWidth="lg">
