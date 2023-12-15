@@ -12,9 +12,7 @@ export default defineConfig(({ mode }) => {
         name: "mfe-shell",
         filename: "mfe-shell-entry.js",
         shared: ["react", "react-dom", "@emotion/react"],
-        exposes: {
-          "./CardContainer": "./src/components/CardContainer",
-        },
+        exposes: {},
         remotes: {
           "mfe-parcel": process.env.VITE_PARCEL_URL,
           "mf-auth": process.env.VITE_AUTH,
