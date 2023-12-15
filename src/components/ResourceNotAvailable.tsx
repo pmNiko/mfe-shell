@@ -19,7 +19,7 @@ const ResourceNotAvailable = () => {
       </Box>
 
       <Box mt={4} mb={2} mx={2} display="flex" justifyContent="space-evenly">
-        <Button color="secondary" onClick={() => window.location.reload()}>
+        <Button color="warning" onClick={() => window.location.reload()}>
           Recargar
         </Button>
 

@@ -1,24 +1,18 @@
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { LoadingPage } from "../components";
 import { PublicLayout, SupportLayout } from "../layout";
-import {
-  errorLoader,
-  loaderItemsMenu,
-  loaderPosts,
-  loaderTodos,
-} from "../loaders";
-
+import { loaderPosts, loaderTodos } from "../loaders/jsonplaceholder";
+import { errorLoader, loaderItemsMenu } from "../loaders/menu";
 import { ProtectedRoute } from "./ProtectedRoute";
-
-import { HomePage } from "../pages";
-import { WithErrorBoundary } from "../components/WithErrorBoundary";
 import { Routes } from "./index";
 
+import HomePage from "../pages/Home";
+
 const RouterAuth = lazy(() => import("mf-auth/RouterAuth"));
+const ParcelTest = lazy(() => import("../pages/ParcelTest"));
 
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
-const ParcelTest = lazy(() => import("../pages/ParcelTest"));
 const Gallery = lazy(() => import("../pages/Gallery"));
 
 const Posts = lazy(() => import("../pages/JSONPLACEHOLDER/Posts"));
@@ -43,11 +37,9 @@ const router = createBrowserRouter(
         {
           path: Routes.auth.children.account.routerPath,
           element: (
-            <Suspense fallback={<p>Cargando...</p>}>
-              <WithErrorBoundary>
-                <RouterAuth basepath={Routes.auth.routerPath} />
-              </WithErrorBoundary>
-            </Suspense>
+            <LoadingPage>
+              <RouterAuth basepath={Routes.auth.routerPath} />
+            </LoadingPage>
           ),
         },
       ],

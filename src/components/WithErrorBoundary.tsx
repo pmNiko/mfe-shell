@@ -6,7 +6,7 @@ interface Props {
 
 export const WithErrorBoundary = ({ children }: Props) => {
   return (
-    <ErrorBoundary fallback={<p>El recurso no se encuentra disponible! </p>}>
+    <ErrorBoundary fallback={<p>El recurso no se encuentra </p>}>
       {children}
     </ErrorBoundary>
   );

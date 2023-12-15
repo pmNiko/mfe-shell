@@ -15,7 +15,7 @@ interface InternalItemCardProps {
   isProtected: boolean;
 }
 
-export const HomePage = () => {
+export default () => {
   const isLogged = useGlobalStore((state) => state.isLogged);
   const navigate = useNavigate();
   const { internals, externals } = useLoaderData() as LoaderDataMenu;
