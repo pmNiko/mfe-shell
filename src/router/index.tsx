@@ -27,8 +27,14 @@ export const Routes = {
   rickAndMorty: {
     routerPath: "rickandmorty",
     children: {
-      characters: { routerPath: "characters" },
-      character: { routerPath: "character/:characterID" },
+      characters: {
+        routerPath: "characters",
+        absolutePath: "/rickandmorty/characters",
+      },
+      character: {
+        routerPath: "character/:characterID",
+        absolutePath: "/rickandmorty/character",
+      },
       locations: { routerPath: "locations" },
       episodes: { routerPath: "episodes" },
     },

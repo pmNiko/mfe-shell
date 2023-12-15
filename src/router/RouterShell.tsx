@@ -41,7 +41,7 @@ const router = createBrowserRouter(
       errorElement: <SupportLayout />,
       children: [
         {
-          path: Routes.auth.children["account"].routerPath,
+          path: Routes.auth.children.account.routerPath,
           element: (
             <Suspense fallback={<p>Cargando...</p>}>
               <WithErrorBoundary>
@@ -85,7 +85,7 @@ const router = createBrowserRouter(
           path: Routes.jsonplaceholder.routerPath,
           children: [
             {
-              path: Routes.jsonplaceholder.children["posts"].routerPath,
+              path: Routes.jsonplaceholder.children.posts.routerPath,
               loader: loaderPosts,
               element: (
                 <LoadingPage>
@@ -94,7 +94,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: Routes.jsonplaceholder.children["post"].routerPath,
+              path: Routes.jsonplaceholder.children.post.routerPath,
               element: (
                 <LoadingPage>
                   <Post />
@@ -102,7 +102,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: Routes.jsonplaceholder.children["comments"].routerPath,
+              path: Routes.jsonplaceholder.children.comments.routerPath,
               element: (
                 <LoadingPage>
                   <Comments />
@@ -110,7 +110,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: Routes.jsonplaceholder.children["users"].routerPath,
+              path: Routes.jsonplaceholder.children.users.routerPath,
               element: (
                 <LoadingPage>
                   <Users />
@@ -118,7 +118,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: Routes.jsonplaceholder.children["todos"].routerPath,
+              path: Routes.jsonplaceholder.children.todos.routerPath,
               loader: loaderTodos,
               element: (
                 <LoadingPage>
@@ -132,7 +132,7 @@ const router = createBrowserRouter(
           path: Routes.rickAndMorty.routerPath,
           children: [
             {
-              path: Routes.rickAndMorty.children["characters"].routerPath,
+              path: Routes.rickAndMorty.children.characters.routerPath,
               element: (
                 <LoadingPage>
                   <Characters />
@@ -140,7 +140,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: Routes.rickAndMorty.children["character"].routerPath,
+              path: Routes.rickAndMorty.children.character.routerPath,
               element: (
                 <LoadingPage>
                   <Character />
@@ -148,7 +148,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: Routes.rickAndMorty.children["locations"].routerPath,
+              path: Routes.rickAndMorty.children.locations.routerPath,
               element: (
                 <LoadingPage>
                   <Locations />
@@ -156,7 +156,7 @@ const router = createBrowserRouter(
               ),
             },
             {
-              path: Routes.rickAndMorty.children["episodes"].routerPath,
+              path: Routes.rickAndMorty.children.episodes.routerPath,
               element: (
                 <LoadingPage>
                   <Episodes />

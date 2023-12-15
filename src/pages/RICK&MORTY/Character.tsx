@@ -10,9 +10,9 @@ import {
   Icon,
   Typography,
 } from "@mui/material";
-import { Paths } from "../../router/routes";
 import { useGetCharacterByID } from "../../api/Rick&Morty";
 import { useGetApi } from "../../hooks";
+import { Routes } from "../../router";
 
 export default () => {
   const { characterID } = useParams();
@@ -114,12 +114,12 @@ export default () => {
         )}
       </Box>
       <Box display="flex" justifyContent="space-evenly" mb={4} mt={2}>
-        <NavLink to={Paths.INDEX}>
+        <NavLink to={Routes.index.routerPath}>
           <Button size="small" color="secondary">
             Regresar al Inicio
           </Button>
         </NavLink>
-        <NavLink to={"/" + Paths.RICK_AND_MORTY + "/characters"}>
+        <NavLink to={Routes.rickAndMorty.children["characters"].absolutePath}>
           <Button size="small">Lista de personajes</Button>
         </NavLink>
       </Box>
