@@ -4,13 +4,12 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthForm, CustomModal, Profile } from ".";
-import { auth } from "../auth/fb-auth";
-import { useGlobalStore } from "../store/useGlobalStore";
+import { CustomModal } from ".";
 import { Routes } from "../router";
+import useAuthStore, { AuthStore } from "../externals/useAuthStore";
 
 export const NavBar = ({ children }: { children?: JSX.Element }) => {
-  const isLogged = useGlobalStore((state) => state.isLogged);
+  const isLogged = useAuthStore((state: AuthStore) => state.isLogged);
   const [open, setOpen] = useState(false);
 
   const closeModal = () => setOpen(false);
@@ -43,8 +42,8 @@ export const NavBar = ({ children }: { children?: JSX.Element }) => {
                 {isLogged ? (
                   <Avatar
                     sx={{ height: 30, width: 30 }}
-                    alt={auth.currentUser?.email + ""}
-                    src={auth.currentUser?.photoURL + ""}
+                    // alt={auth.currentUser?.email + ""}
+                    // src={auth.currentUser?.photoURL + ""}
                   />
                 ) : (
                   <Avatar
@@ -68,7 +67,8 @@ export const NavBar = ({ children }: { children?: JSX.Element }) => {
         </Toolbar>
       </AppBar>
       <CustomModal open={open} onClose={closeModal}>
-        {isLogged ? <Profile closeModal={closeModal} /> : <AuthForm />}
+        <p>Nada aun</p>
+        {/* {isLogged ? <Profile closeModal={closeModal} /> : <AuthForm />} */}
       </CustomModal>
     </Box>
   );

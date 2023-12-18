@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
       federation({
         name: "mfe-shell",
         filename: "mfe-shell-entry.js",
-        shared: ["react", "react-dom", "@emotion/react"],
+        shared: ["react", "react-dom", "@emotion/react", "zustand"],
         exposes: {},
         remotes: {
           "mfe-parcel": process.env.VITE_PARCEL_URL,

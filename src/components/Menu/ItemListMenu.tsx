@@ -9,7 +9,7 @@ import {
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useGlobalStore } from "../../store/useGlobalStore";
+import useAuthStore, { AuthStore } from "../../externals/useAuthStore";
 import { ItemsMenuProps } from "./interfaces";
 import "./menuStyles.css";
 
@@ -19,7 +19,7 @@ interface Props {
 }
 
 export const ItemListMenu = ({ items, updatedExpadedSections }: Props) => {
-  const isLogged = useGlobalStore((state) => state.isLogged);
+  const isLogged = useAuthStore((state: AuthStore) => state.isLogged);
   if (!items) return null;
 
   return (

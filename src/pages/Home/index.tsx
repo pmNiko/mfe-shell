@@ -4,6 +4,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { CardContainer } from "../../components";
 import { LoaderDataMenu } from "../../interfaces/LoaderDataMenu";
 import { useGlobalStore } from "../../store/useGlobalStore";
+import useAuthStore, { AuthStore } from "../../externals/useAuthStore";
 import "./home.css";
 
 interface InternalItemCardProps {
@@ -16,8 +17,8 @@ interface InternalItemCardProps {
 }
 
 export default () => {
-  const isLogged = useGlobalStore((state) => state.isLogged);
   const navigate = useNavigate();
+  const isLogged = useAuthStore((state: AuthStore) => state.isLogged);
   const { internals, externals } = useLoaderData() as LoaderDataMenu;
   const [items, setItems] = useState<InternalItemCardProps[]>([]);
 
