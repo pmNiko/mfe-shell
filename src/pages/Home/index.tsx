@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { CardContainer } from "../../components";
 import { LoaderDataMenu } from "../../interfaces/LoaderDataMenu";
-import { useGlobalStore } from "../../store/useGlobalStore";
 import useAuthStore, { AuthStore } from "../../externals/useAuthStore";
 import "./home.css";
 

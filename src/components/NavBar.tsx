@@ -2,17 +2,32 @@ import { Avatar, Box, Button, Icon } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { CustomModal } from ".";
 import { Routes } from "../router";
 import useAuthStore, { AuthStore } from "../externals/useAuthStore";
+import Login from "mf-auth/Login";
+import Profile from "mf-auth/Profile";
 
 export const NavBar = ({ children }: { children?: JSX.Element }) => {
+  const [isAuthPath, setIsAuthPath] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const isLogged = useAuthStore((state: AuthStore) => state.isLogged);
-  const [open, setOpen] = useState(false);
+  const userData = useAuthStore((state: AuthStore) => state.userData);
+  const [openModal, setOpenModal] = useState(false);
 
-  const closeModal = () => setOpen(false);
+  const closeModal = () => setOpenModal(false);
+
+  useEffect(() => {
+    if (location.pathname.match(Routes.auth.routerPath)) {
+      setIsAuthPath(true);
+      closeModal();
+    } else {
+      setIsAuthPath(false);
+    }
+  }, [location.pathname]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -38,12 +53,12 @@ export const NavBar = ({ children }: { children?: JSX.Element }) => {
                 App Shell
               </Typography>
 
-              <Button onClick={() => setOpen(true)}>
+              <Button onClick={() => setOpenModal(true)} disabled={isAuthPath}>
                 {isLogged ? (
                   <Avatar
                     sx={{ height: 30, width: 30 }}
-                    // alt={auth.currentUser?.email + ""}
-                    // src={auth.currentUser?.photoURL + ""}
+                    alt={userData?.email + ""}
+                    src={userData?.photo + ""}
                   />
                 ) : (
                   <Avatar
@@ -53,22 +68,26 @@ export const NavBar = ({ children }: { children?: JSX.Element }) => {
                   />
                 )}
               </Button>
-              <NavLink to={"/auth/account"}>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  sx={{ color: "white" }}
-                >
-                  Login federado
-                </Button>
-              </NavLink>
             </Box>
           </Typography>
         </Toolbar>
       </AppBar>
-      <CustomModal open={open} onClose={closeModal}>
-        <p>Nada aun</p>
-        {/* {isLogged ? <Profile closeModal={closeModal} /> : <AuthForm />} */}
+      <CustomModal open={openModal} onClose={closeModal}>
+        <Box textAlign="center">
+          {isLogged ? <Profile /> : <Login />}
+          {!isLogged && (
+            <Button
+              style={{ marginTop: "2em" }}
+              color="secondary"
+              size="small"
+              onClick={() =>
+                navigate(Routes.auth.children.account.absolutePath + "/signup")
+              }
+            >
+              Registrarse
+            </Button>
+          )}
+        </Box>
       </CustomModal>
     </Box>
   );
